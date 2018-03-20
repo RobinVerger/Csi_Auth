@@ -1,0 +1,15 @@
+
+<mat-sidenav-container>
+  <mat-sidenav #sidenav (click)="sidenav.close()">
+    <h1>SideNav</h1>
+    <button mat-button>Click</button>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <mat-card>
+    <h1>YOU ARE LOGGED</h1>
+    <router-outlet></router-outlet>
+    <button mat-button (click)="logout()">Logout</button>
+    <button mat-button (click)="sidenav.toggle()">sidenav</button>
+    </mat-card>
+  </mat-sidenav-content>
+</mat-sidenav-container>

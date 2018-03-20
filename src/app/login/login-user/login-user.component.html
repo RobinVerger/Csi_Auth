@@ -1,0 +1,26 @@
+<form #loginForm="ngForm" (ngSubmit)="onSubmit(loginForm.value)" >
+  <mat-form-field>
+      <input 
+      matInput
+      ngModel
+      type="text" 
+      name="username" 
+      placeholder="Username"> 
+  </mat-form-field>
+  <br/>
+  <mat-form-field>
+    <input 
+      matInput
+      ngModel 
+      type="password"
+      name="password" 
+      placeholder="Password"> 
+    </mat-form-field>
+    <a routerLink="pass">I forgot my password!</a>
+  <button type="submit" mat-button color="primary">Login</button>
+</form>
+<h2>Input sent:</h2>
+{{loginForm.value | json}}
+<br/>
+<!-- Testing purpose -->
+<!-- <button mat-button color="primary" (click)="logIn()"> Login</button> -->
