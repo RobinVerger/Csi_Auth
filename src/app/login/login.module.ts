@@ -1,28 +1,35 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
+/* Utilities */
+import { FormsModule } from '@angular/forms';
+
 /* Material */
 import { MaterialImportsModule } from "../material-imports.module";
 
 /* Routes */
 import { LoginRoutingModule } from './login-routing.module';
+
 /* Child Components */
 import { LoginPageComponent } from './login-page/login-page.component';
 import { LoginUserComponent } from './login-user/login-user.component';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 
-/* Http Modules */
-import { HeaderInterceptor } from '../shared/http-interceptor';
+/* Http */
+import { HeaderInterceptor } from '../services/http-header-interceptor';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { LoginService } from './services/login.service';
-import { FormsModule } from '@angular/forms';
+
+/* Test purpose */
+import { TestBarModule } from '../test-bar/test-bar.module';
 
 @NgModule({
   imports: [
     CommonModule,
     LoginRoutingModule,
     MaterialImportsModule,
-    FormsModule
+    FormsModule,
+    TestBarModule    
   ],
   declarations: [
     LoginPageComponent,

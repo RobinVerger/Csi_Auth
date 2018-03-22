@@ -1,7 +1,10 @@
-<div>
-  <ul *ngFor="let user of userList$">
-    <li>{{user.username}}:{{user.email}}</li>
-  </ul>
-</div>
-
-<button mat-button (click)="getUserList()">UserList</button>
+<mat-card>
+    <h1>YOU ARE LOGGED</h1>
+    <div>
+      <ul *ngFor="let user of userList$">
+        <li>{{user.username}}:{{user.email}}</li>
+      </ul>
+    </div>
+    
+    <button mat-button (click)="getUserList()">UserList</button>
+</mat-card>

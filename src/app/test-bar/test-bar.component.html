@@ -1,0 +1,22 @@
+<mat-toolbar 
+    color="primary">
+    <mat-card 
+      class="testingPurpose"
+      fxLayout="column">
+      <mat-expansion-panel>
+          <mat-expansion-panel-header>
+          <h2>Testing purpose</h2>
+          </mat-expansion-panel-header>
+          <ng-template matExpansionPanelContent>
+            <div class="commands">
+                <button mat-button color="primary" (click)="navigate('login')">Login Page</button>
+                <button mat-button color="primary" (click)="navigate('main')">Main Page</button>
+                <button mat-button color="primary" (click)="httpCall(this.url.SPRING_URL)">Test Http Call</button>
+                <button mat-button color="primary" (click)="httpCall(this.url.ERROR_URL)">Error Http Call</button>
+                <button mat-button color="primary" (click)="generateToken()">Generate Random Jwt</button>
+                <button mat-button color="primary" (click)="deleteToken()">Delete Random Jwt</button>
+              </div>
+          </ng-template>
+        </mat-expansion-panel>
+    </mat-card>
+  </mat-toolbar>

@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
 import { Observable } from 'rxjs/Observable';
-import { AuthService } from '../services/auth.service';
+import { AuthService } from './auth.service';
 import { Router } from "@angular/router";
 
 @Injectable()
@@ -16,6 +16,7 @@ export class AuthGuard implements CanActivate {
       return true;
     else {
       this.router.navigate(['login']);
+      console.log('JWT Token Missing : You are not logged');
       return false;
     }
   }

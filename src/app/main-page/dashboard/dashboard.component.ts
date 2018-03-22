@@ -16,6 +16,7 @@ export class DashboardComponent implements OnInit {
   ngOnInit() {
   }
 
+  /* TEST PURPOSE LIST OF USERS */
   getUserList() {
     this.api.get('http://localhost:4242/api/user')
     .do(data => console.log(data))

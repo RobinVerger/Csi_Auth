@@ -1,3 +1,6 @@
 mat-sidenav {
-min-width: 500px;
+  min-width: 500px;
+}
+mat-sidenav-container {
+  height: 100%; //for flexbox sticky footer
 }

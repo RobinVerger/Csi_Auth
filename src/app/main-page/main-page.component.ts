@@ -1,7 +1,4 @@
-import { Component, OnInit } from '@angular/core';
-import { AuthService } from '../services/auth.service';
-import { Router } from '@angular/router';
-
+import { Component, OnInit, Inject } from '@angular/core';
 @Component({
   selector: 'app-main-page',
   templateUrl: './main-page.component.html',
@@ -9,14 +6,8 @@ import { Router } from '@angular/router';
 })
 export class MainPageComponent implements OnInit {
 
-  constructor(private auth: AuthService, private router: Router) { }
+  constructor() { }
 
   ngOnInit() {
   }
-
-  logout() {
-    this.auth.logout();
-    this.router.navigate([''], { replaceUrl : true });
-  }
-    
 }
