@@ -5,4 +5,9 @@ export class TestBarParamsService {
 
   constructor() { }
 
+  isVisible: boolean = false;
+
+  toggleVisibility(){
+    this.isVisible = !this.isVisible;
+  }
 }

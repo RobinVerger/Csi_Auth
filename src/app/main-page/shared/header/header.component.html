@@ -1,6 +1,11 @@
-<mat-toolbar color="primary" aria-label="header">
+<mat-toolbar 
+  color="primary" 
+  fxLayout="row"
+  fxLayoutAlign="space-between center"
+  aria-label="header">
+  <button mat-icon-button (click)="toggleSideBar()"><mat-icon>menu</mat-icon></button>
   <h1>This is the header</h1>
-  <button mat-button (click)="logout()">
-    <mat-icon>Cross</mat-icon>
-  </button>
+  <button 
+    mat-button
+    (click)="logout()">Logout</button>
 </mat-toolbar>

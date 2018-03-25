@@ -23,6 +23,7 @@ import { FooterComponent } from './shared/footer/footer.component';
 /* Test purpose */
 import { TestBarModule } from '../test-bar/test-bar.module';
 import { AuthService } from '../services/auth.service';
+import { SidebarService } from './services/sidebar.service';
 
 @NgModule({
   imports: [
@@ -41,6 +42,7 @@ import { AuthService } from '../services/auth.service';
       HeaderComponent,
       FooterComponent,
       BodyComponent,
-  ]
+  ],
+  providers: [SidebarService]
 })
 export class MainPageModule { }

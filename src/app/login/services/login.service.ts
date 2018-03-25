@@ -5,5 +5,4 @@ import { ApiService } from '../../services/api.service';
 export class LoginService {
 
   constructor(private api: ApiService) { }
-
 }

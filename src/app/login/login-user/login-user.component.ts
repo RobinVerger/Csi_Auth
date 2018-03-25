@@ -22,7 +22,7 @@ export class LoginUserComponent implements OnInit {
   onSubmit(payload) {
 
     console.log(JSON.stringify(payload));
-
+    
     this.api.post('http://localhost:4242/api/auth', payload)
      .subscribe(data => {
        console.log('token set to:' + data);

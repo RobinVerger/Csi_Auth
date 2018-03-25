@@ -1,13 +1,34 @@
-mat-card {
-  width: 80%;
-  margin: 0 auto;
-  background: #FEFEFE;
-}
-h2 {
-  margin: 2rem;
-}
 :host {
   position: fixed;
-  bottom: 100px;
+  bottom: 200px;
   width: 100%;
+}
+/* Menu Toggle Button */
+.onOff {
+  position: fixed;
+  right: 50px;
+  bottom: 113px  ;
+}
+
+
+mat-card {
+  background: #FEFEFE;
+  margin: 0 auto;
+  width: 80%;
+}
+
+/* Sidenav */
+mat-sidenav {
+  width:60%;
+  overflow-y: visible;
+}
+mat-sidenav-container {
+  overflow-y: visible;
+  height: 50px;
+}
+.mat-drawer-container {
+  overflow: visible;
+}
+mat-sidenav-content {
+  overflow:hidden;
 }

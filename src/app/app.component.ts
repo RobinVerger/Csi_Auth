@@ -11,6 +11,7 @@ import { TestBarParamsService } from './test-bar/services/test-bar-params.servic
 })
 export class AppComponent {
 
-constructor() {}
+  ngOnInit(){}
+constructor(public tsB : TestBarParamsService) {}
 
 }

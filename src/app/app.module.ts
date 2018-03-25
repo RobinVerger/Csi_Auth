@@ -5,11 +5,11 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { FlexLayoutModule } from '@angular/flex-layout';
 
-/* Routes */
-import { AppRoutingModule } from './app-routing.module';
-
 /* Material */
 import { MaterialImportsModule } from "./material-imports.module";
+
+/* Routes */
+import { AppRoutingModule } from './app-routing.module';
 
 /* Child Components */
 import { AppComponent } from './app.component';
@@ -46,7 +46,6 @@ import { TestBarModule } from './test-bar/test-bar.module';
     HttpClientModule,
     FlexLayoutModule,
     TestBarModule.forRoot()
-    
   ],
   providers: [
     ApiService,

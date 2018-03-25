@@ -1,8 +1,13 @@
 import { Component, OnInit, Inject } from '@angular/core';
+
+/* Services */
 import { ApiService } from '../services/api.service';
 import { AuthService } from '../services/auth.service';
-import { Router } from '@angular/router';
 import { TestBarParamsService } from './services/test-bar-params.service';
+/* Router */
+import { Router } from '@angular/router';
+
+/* Data */
 import { URL_LIST } from '../shared/data/URL-list';
 
 @Component({
@@ -15,16 +20,19 @@ export class TestBarComponent implements OnInit {
   /* JWT fake token */
   token: string = 'random token';
   test_response;
-
+  
   constructor(
-      private api: ApiService, 
-      private auth: AuthService,
-      private params: TestBarParamsService,
+      public barConfig: TestBarParamsService,
       @Inject('url') public url: URL_LIST,
+      
+      private api: ApiService, 
+      public auth: AuthService,
+      private params: TestBarParamsService,
       private router: Router
       ) { }
 
   ngOnInit() {
+    console.log(this.auth.isLoggedIn());
   }
 
   /* Custom http call, urls comes from the buttons in template */
@@ -46,5 +54,19 @@ export class TestBarComponent implements OnInit {
   /* Generic navigation for the buttons. "path" is defined within the button */
   navigate(path){
     this.router.navigate([`${path}`], { replaceUrl : true });
+  }
+
+  toggleVisibility(){
+    this.barConfig.toggleVisibility();
+    console.log('toggleDone');
+    console.log(this.barConfig.isVisible);
+  }
+  toggleAuthentication() {
+    const logged = this.auth.isLoggedIn();
+    if(logged)
+      this.deleteToken();
+    else
+      this.generateToken();
+    
   }
 }

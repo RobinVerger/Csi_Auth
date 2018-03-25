@@ -8,6 +8,7 @@ import { Router } from '@angular/router';
 
 /* Data */
 import { URL_LIST } from '../../shared/data/URL-list';
+import { TestBarParamsService } from '../../test-bar/services/test-bar-params.service';
 
 @Component({
   selector: 'app-login-page',
@@ -18,7 +19,7 @@ export class LoginPageComponent implements OnInit {
 
   constructor(
     private auth: AuthService,
-      private router: Router,
+      private router: Router
   ) { }
 
   ngOnInit() {
