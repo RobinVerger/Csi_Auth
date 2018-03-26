@@ -14,7 +14,11 @@ import { ApiService } from '../../services/api.service';
 })
 export class LoginUserComponent implements OnInit {
 
-  constructor(private router: Router, private auth: AuthService, private api: ApiService) { }
+  constructor(
+      private router: Router, 
+      private auth: AuthService, 
+      private api: ApiService
+    ) { }
 
   ngOnInit() {
   }

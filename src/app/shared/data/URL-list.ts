@@ -19,5 +19,6 @@ export class URL_LIST {
 
   /* TESTING PURPOSE */
   ERROR_URL = "http://badUrl";
+  FAKE_USER_PREF = "/assets/data/favoriteCases.json"
 
 }

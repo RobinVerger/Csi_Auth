@@ -31,9 +31,7 @@ export class TestBarComponent implements OnInit {
       private router: Router
       ) { }
 
-  ngOnInit() {
-    console.log(this.auth.isLoggedIn());
-  }
+  ngOnInit() { }
 
   /* Custom http call, urls comes from the buttons in template */
   httpCall(url) {

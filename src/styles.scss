@@ -6,3 +6,8 @@ html, body {
   padding: 0px;
   height: 100%; //for flexbox sticky footer
 }
+
+//Style for the tabs
+.mat-tab-labels {
+  justify-content : space-around;
+}

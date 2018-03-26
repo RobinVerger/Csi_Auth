@@ -1,0 +1,67 @@
+{
+  "user_id": 1,
+  "user_name": "Jesus",
+  "fav_case": {
+    "data": [{
+        "case_id": "1",
+        "case_name": "Meutre au bacon",
+        "resp_case": "Dieu",
+        "date": "2015-06-15T09:03:01+0900",
+        "image": "https://baconmockup.com/200/300/",
+        "location": "France",
+        "weapon": "Bacon",
+        "victimes": "Brigite Lahaye"
+      },
+      {
+        "case_id": "2",
+        "case_name": "Vol de jambon",
+        "resp_case": "Dieu",
+        "date": "2015-09-15T09:03:01+0900",
+        "image": "https://baconmockup.com/200/300/",
+        "location": "France",
+        "weapon": "Scooter",
+        "victimes": "Johny Haliday"
+      },
+      {
+        "case_id": "3",
+        "case_name": "Viol au saucisson",
+        "resp_case": "Dieu",
+        "date": "2015-09-15T09:03:01+0900",
+        "image": "https://baconmockup.com/200/300/",
+        "location": "France",
+        "weapon": "Saucisson",
+        "victimes": "Mickael Jackson"
+      },
+      {
+        "case_id": "3",
+        "case_name": "Viol au saucisson",
+        "resp_case": "Dieu",
+        "date": "2015-09-15T09:03:01+0900",
+        "image": "https://baconmockup.com/200/300/",
+        "location": "France",
+        "weapon": "saucisson",
+        "victimes": "Mickael Jackson"
+      },
+      {
+        "case_id": "3",
+        "case_name": "Viol au saucisson",
+        "resp_case": "Dieu",
+        "date": "2015-09-15T09:03:01+0900",
+        "image": "https://baconmockup.com/200/300/",
+        "location": "France",
+        "weapon": "saucisson",
+        "victimes": "Mickael Jackson"
+      },
+      {
+        "case_id": "3",
+        "case_name": "Viol au saucisson",
+        "resp_case": "Dieu",
+        "date": "2015-09-15T09:03:01+0900",
+        "image": "https://baconmockup.com/200/300/",
+        "location": "France",
+        "weapon": "saucisson",
+        "victimes": "Mickael Jackson"
+      }
+    ]
+  }
+}

@@ -1,6 +1,14 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
+
+/* Services */
 import { ApiService } from '../../services/api.service';
+
+/* Rxjs */
 import { Observable } from "rxjs/Observable";
+
+/* Data */
+import { URL_LIST } from '../../shared/data/URL-list';
+import { ICase } from '../../shared/models/ICase';
 
 @Component({
   selector: 'app-dashboard',
@@ -9,19 +17,22 @@ import { Observable } from "rxjs/Observable";
 })
 export class DashboardComponent implements OnInit {
 
-  userList$: Observable<any>;
+  favCases$ : Observable<ICase[]>;
 
-  constructor(private api: ApiService) { }
+  constructor(
+      private api: ApiService,
+      @Inject('url') public url: URL_LIST
+      ) { }
 
   ngOnInit() {
+    this.getUserPrefs(this.url.FAKE_USER_PREF);
   }
 
-  /* TEST PURPOSE LIST OF USERS */
-  getUserList() {
-    this.api.get('http://localhost:4242/api/user')
-    .do(data => console.log(data))
-        .subscribe(data => {
-          this.userList$ = data;
-        });
+  getUserPrefs(url){
+    this.api.get(url)
+      .map(data => this.favCases$ = data['fav_case']['data'])
+      //.do(x => console.log(x))
+      .subscribe( data => this.favCases$)
+                            
   }
 }

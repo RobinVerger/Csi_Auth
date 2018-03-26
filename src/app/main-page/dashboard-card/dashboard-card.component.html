@@ -1,0 +1,36 @@
+<mat-card
+  fxLayout="column">
+   <!-- Mat-Menu -->
+  <button mat-mini-fab 
+            color="primary" 
+            [matMenuTriggerFor]="cardMenu"
+            class="card-menu-button"
+    >
+    <mat-icon>more_vert</mat-icon>
+    </button>
+    <mat-menu #cardMenu="matMenu">
+        <ng-template matMenuContent>
+          <button mat-menu-item>Supprimer favoris</button>
+        </ng-template>
+    </mat-menu>
+  <!-- Card Title -->
+  <mat-card-title>{{userFav.case_name}}</mat-card-title>
+  <mat-card-subtitle>{{userFav.date | date}}</mat-card-subtitle>
+  <!-- Image Thumbnail -->
+  <img mat-card-image
+       [src]="userFav.image" 
+       [alt]="userFav.case_name">
+    <!-- Description -->
+    <mat-card-content>
+      <ul>
+        <li>Responsable Enquete : {{userFav.resp_case}}</li>
+        <li>Localisation : {{userFav.location}}</li>
+        <li>Armes : {{userFav.weapon}}</li>
+      </ul>
+    </mat-card-content>
+    <!-- Buttons -->
+    <mat-card-actions >
+      <button mat-raised-button
+              color="primary">Acceder</button>
+    </mat-card-actions>    
+  </mat-card>

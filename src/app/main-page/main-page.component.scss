@@ -1,6 +1,25 @@
 mat-sidenav {
   min-width: 500px;
+  a {
+    display: block;
+    padding:20px;
+    margin:0px;
+    
+    font-size: 2rem;
+    font-family: 'Helvetica Neue', Arial, Helvetica, sans-serif;
+    text-decoration: none;
+
+    &:hover {
+      background: rgb(145, 116, 194);
+      color:#FFF;
+    }
+  } 
 }
+.activeLink {
+  background: #673AB7;
+  color: #FFF;
+}
+
 mat-sidenav-container {
   height: 100%; //for flexbox sticky footer
 }

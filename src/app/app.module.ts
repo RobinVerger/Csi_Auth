@@ -31,7 +31,6 @@ import { URL_LIST } from './shared/data/URL-list'; // all url used
 import { TestBarModule } from './test-bar/test-bar.module';
 
 
-
 @NgModule({
   declarations: [
     AppComponent,

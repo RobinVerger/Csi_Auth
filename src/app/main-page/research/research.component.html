@@ -1,3 +1,23 @@
-<p>
-  research works!
-</p>
+<mat-tab-group
+  (selectedIndexChange)="currentIndex=$event"
+  backgroundColor="primary"
+  [selectedIndex]="currentIndex">
+    <mat-tab label="Recherche">
+      Research
+      {{currentIndex}}
+      <button 
+        mat-raised-button
+        (click)="setIndex()">Go to Detail</button>
+      </mat-tab>
+      <mat-tab label="Detail">
+        Detail
+        {{currentIndex}}
+        <button 
+        mat-raised-button
+        (click)="killIndex()">Go to Search</button>
+      </mat-tab>
+      <mat-tab label="Administration">
+        Administration
+        {{currentIndex}}
+  </mat-tab>
+</mat-tab-group>

@@ -1,0 +1,17 @@
+:host {
+  width: 90%;
+  max-width: 90%;
+  margin: 25px auto;
+}
+.flex-container {
+
+  margin: 50px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  
+}
+.case-list {
+  flex: 1 0 auto;
+}

@@ -6,10 +6,20 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./research.component.scss']
 })
 export class ResearchComponent implements OnInit {
-
+  
+  currentIndex: number = 0;
   constructor() { }
 
   ngOnInit() {
   }
 
+  setIndex() {
+    this.currentIndex = 1;
+  }
+  killIndex() {
+    this.currentIndex--;
+  }
+  log(event){
+    console.log(event);
+  }
 }

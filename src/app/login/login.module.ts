@@ -10,14 +10,14 @@ import { MaterialImportsModule } from "../material-imports.module";
 /* Routes */
 import { LoginRoutingModule } from './login-routing.module';
 
-/* Child Components */
+/* Pages */
 import { LoginPageComponent } from './login-page/login-page.component';
 import { LoginUserComponent } from './login-user/login-user.component';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 
 /* Http */
 import { HeaderInterceptor } from '../services/http-header-interceptor';
-import { HTTP_INTERCEPTORS } from '@angular/common/http';
+//import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { LoginService } from './services/login.service';
 
 /* Test purpose */
@@ -38,7 +38,7 @@ import { TestBarModule } from '../test-bar/test-bar.module';
   ],
   providers: [
     LoginService,
-    { provide: HTTP_INTERCEPTORS, useClass: HeaderInterceptor, multi: true}
+    //{ provide: HTTP_INTERCEPTORS, useClass: HeaderInterceptor, multi: true} is it usefull?
   ],
 })
 export class LoginModule { }

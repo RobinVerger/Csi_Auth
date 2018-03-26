@@ -1,7 +1,18 @@
 <mat-sidenav-container>
   <mat-sidenav #sidenav (click)="sidenav.close()">
-    <h1>SideNav</h1>
-    <button mat-button>Click</button>
+    <div 
+      class="sidenav-navigation"
+      *ngFor="let page of sideService.pages; let i = index">
+      <a 
+      [routerLink]="page.path"
+      routerLinkActive="activeLink"
+      >{{i+1}} - {{page.componentName}}</a>
+      <mat-divider></mat-divider>
+    </div>
+    <mat-divider></mat-divider>
+    <a href=""
+    (click)="header.logout()">Logout</a>
+    <mat-divider></mat-divider>
   </mat-sidenav>
   <mat-sidenav-content fxLayout="column" >
     <main-page-header fxFlex="none"></main-page-header>
