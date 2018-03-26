@@ -2,22 +2,21 @@
   (selectedIndexChange)="currentIndex=$event"
   backgroundColor="primary"
   [selectedIndex]="currentIndex">
-    <mat-tab label="Recherche">
-      Research
-      {{currentIndex}}
-      <button 
-        mat-raised-button
-        (click)="setIndex()">Go to Detail</button>
-      </mat-tab>
-      <mat-tab label="Detail">
-        Detail
-        {{currentIndex}}
-        <button 
-        mat-raised-button
-        (click)="killIndex()">Go to Search</button>
-      </mat-tab>
+
+  <!-- Tab research -->
+  <mat-tab label="Recherche">
+    <research-content></research-content>
+    <app-test-component (tabReq)="currentIndex=$event" ></app-test-component>
+  </mat-tab>
+
+  <!-- Tab detail -->
+  <mat-tab label="Detail">
+    <button 
+    mat-raised-button
+    (click)="killIndex()">Go to Search</button>
+  </mat-tab>
+  
+  <!-- Tab admin -->
       <mat-tab label="Administration">
-        Administration
-        {{currentIndex}}
   </mat-tab>
 </mat-tab-group>

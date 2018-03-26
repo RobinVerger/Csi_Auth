@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-//import { MainPageModule } from "../../main-page/main-page.module";
+
+/* Router */
 import { Router, Route, ActivatedRoute } from '@angular/router';
 
 /* Services */
@@ -23,10 +24,10 @@ export class LoginUserComponent implements OnInit {
   ngOnInit() {
   }
 
+  /* Authentication call */
   onSubmit(payload) {
 
-    console.log(JSON.stringify(payload));
-    
+   // console.log(JSON.stringify(payload));
     this.api.post('http://localhost:4242/api/auth', payload)
      .subscribe(data => {
        console.log('token set to:' + data);

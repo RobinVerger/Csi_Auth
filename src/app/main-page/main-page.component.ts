@@ -14,6 +14,7 @@ export class MainPageComponent implements OnInit {
     private sideService : SidebarService
   ) { }
 
+  /* Allow Sidenav to be sent in service */
   @ViewChild('sidenav')
     public sidenav;
 

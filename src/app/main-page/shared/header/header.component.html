@@ -3,8 +3,16 @@
   fxLayout="row"
   fxLayoutAlign="space-between center"
   aria-label="header">
-  <button mat-icon-button (click)="toggleSideBar()"><mat-icon>menu</mat-icon></button>
+
+  <!-- Sidebar Toggle Button -->
+  <button mat-icon-button (click)="toggleSideBar()">
+    <mat-icon>menu</mat-icon>
+  </button>
+
+  <!-- Header -->
   <h1>This is the header</h1>
+
+  <!-- Logout -->
   <button 
     mat-button
     (click)="logout()">Logout</button>

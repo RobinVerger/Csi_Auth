@@ -7,6 +7,11 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 /* Material */
 import { MaterialImportsModule } from "../material-imports.module";
 
+/* Services */
+import { AuthService } from '../services/auth.service';
+import { SidebarService } from './services/sidebar.service';
+import { ResearchService } from './services/research.service';
+
 /* Routes */
 import { MainPageRoutingModule } from './main-page-routing.module';
 
@@ -20,13 +25,14 @@ import { HeaderComponent } from './shared/header/header.component';
 import { BodyComponent } from './shared/body/body.component';
 import { FooterComponent } from './shared/footer/footer.component';
 import { DashboardCardComponent } from './dashboard-card/dashboard-card.component';
+import { ResearchContentComponent } from './research-content/research-content.component';
 
 /* Test purpose */
 import { TestBarModule } from '../test-bar/test-bar.module';
-import { AuthService } from '../services/auth.service';
-import { SidebarService } from './services/sidebar.service';
-// import { ResearchContentComponent } from './research-content/research-content.component';
-import { ResearchService } from './services/research.service';
+import { TestComponentComponent } from './shared/test-component/test-component.component';
+import { ELEMENT_DATA } from '../shared/data/mock-const-data';
+
+
 
 
 @NgModule({
@@ -47,8 +53,13 @@ import { ResearchService } from './services/research.service';
       FooterComponent,
       BodyComponent,
       DashboardCardComponent,
-   //   ResearchContentComponent,
+      TestComponentComponent,
+      ResearchContentComponent,
   ],
-  providers: [SidebarService, ResearchService]
+  providers: [
+      SidebarService,
+      ResearchService,
+      { provide: 'mock_values', useValue: ELEMENT_DATA }
+    ]
 })
 export class MainPageModule { }

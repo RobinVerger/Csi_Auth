@@ -1,4 +1,6 @@
 <form #loginForm="ngForm" (ngSubmit)="onSubmit(loginForm.value)" >
+  
+  <!-- Username Field -->
   <mat-form-field>
       <input 
       matInput
@@ -7,7 +9,10 @@
       name="username" 
       placeholder="Username"> 
   </mat-form-field>
+
   <br/>
+
+  <!-- Password Field -->
   <mat-form-field>
     <input 
       matInput
@@ -16,11 +21,12 @@
       name="password" 
       placeholder="Password"> 
     </mat-form-field>
+
+    <!-- Action Buttons -->
     <a routerLink="pass">I forgot my password!</a>
   <button type="submit" mat-button color="primary">Login</button>
 </form>
+
+<!-- Test Purpose -->
 <h2>Input sent:</h2>
 {{loginForm.value | json}}
-<br/>
-<!-- Testing purpose -->
-<!-- <button mat-button color="primary" (click)="logIn()"> Login</button> -->
