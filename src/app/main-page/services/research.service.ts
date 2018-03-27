@@ -9,12 +9,27 @@ import { Observable } from "rxjs/Observable";
 @Injectable()
 export class ResearchService {
 
+  displayedColumns: string[] = [];
+
   constructor(
     private api: ApiService,
-    @Inject('url') public url: URL_LIST
   ) { }
 
-  getAllSuspects(): Observable<ISuspect[]> {
-    return this.api.get(this.url.SPRING_URL_GET_SUSPECTS).do(x => console.log(x));
+  getList(path): Observable<any> {
+    return this.api.get(path);
+  }
+  getSpecific(path): Observable<any> {
+    return this.api.get(path);
+  }
+
+  defineTypeTable(typeData) {
+    /* Set the type of Table */
+    switch(typeData) {
+      case 'suspect':
+        this.displayedColumns = ['id', 'nom', 'prenom', 'genre', 'nationalite', 'suspectSpecific'];
+        break;
+      case 'case':
+        this.displayedColumns = ['numeroDossier', 'nom', 'categorie', 'dateCreation', 'statut', 'caseSpecific'];
+    }
   }
 }

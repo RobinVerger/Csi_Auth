@@ -10,13 +10,20 @@ export class URL_LIST {
 
   /* CSI-BACK URL  */
   SPRING_URL =  "http://localhost:8080/csi"; //Base Url
-  SPRING_URL_GET_SUSPECTS = "http://localhost:8080/csi/suspects"; 
-  SPRING_URL_GET_SUSPECT = "http://localhost:8080//csi/suspect"; 
+
+      /* SUSPECTS */
+      SPRING_URL_GET_SUSPECTS = "http://localhost:8080/csi/suspects"; 
+      SPRING_URL_GET_SUSPECT = "http://localhost:8080//csi/suspect"; 
+      
+      /* CASES */
+      SPRING_URL_GET_CASES = "http://localhost:8080/csi/enquetes"; 
+      SPRING_URL_GET_CASE = "http://localhost:8080/csi/enquete"; 
 
   /* AUTHENTIFICATION SERVER */
   AUTH_URL = "http://localhost:4242"; //Base Url
   AUTH_URL_ROLE = "http://localhost:4242/api/role"
   AUTH_URL_USER = "http://localhost:4242/api/user"
+
 
   /* TESTING PURPOSE */
   ERROR_URL = "http://badUrl";

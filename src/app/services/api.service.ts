@@ -24,7 +24,6 @@ export class ApiService {
   post(url: string, body: Object) {
 
     return this.http.post(url, body )
-    .do(res => console.log(res))
     .catch((res: HttpErrorResponse) => this.onRequestError(res));
   }
 

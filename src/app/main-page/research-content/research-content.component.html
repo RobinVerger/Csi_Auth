@@ -10,15 +10,22 @@
 
   <!-- Action Buttons -->
   <mat-card-actions>
-    <button mat-button color="primary">Fetch Case List</button>
-    <button mat-button color="primary" (click)="getAllSuspects()">Fetch Suspect List</button>
+    <!-- List Cases -->
+    <button mat-button 
+            color="primary"
+            (click)="getList(url.SPRING_URL_GET_CASES, 'case')">Fetch Case List</button>
+    <!-- List Suspects -->
+    <button mat-button 
+            color="primary" 
+            (click)="getList(url.SPRING_URL_GET_SUSPECTS, 'suspect')"
+            >Fetch Suspect List</button>
     <button mat-button color="primary">Fetch User List</button>
   </mat-card-actions>
   
 </mat-card>
 
 <!-- Table Section -->
-<div class="table-container mat-elevation-z8">
+<div class="table-container mat-elevation-z8" *ngIf="researched">
   
   <!-- Filtering Input -->
   <div class="table-header">
@@ -32,12 +39,52 @@
   
     <!-- Columns -->
 
-    <!-- Number Column -->
-    <ng-container matColumnDef="numero">
+    <!-- Id Column -->
+    <ng-container matColumnDef="id">
       <mat-header-cell 
         *matHeaderCellDef
-        mat-sort-header > No. </mat-header-cell>
+        mat-sort-header> No. </mat-header-cell>
       <mat-cell *matCellDef="let element"> {{element.id}} </mat-cell>
+    </ng-container>
+
+    <!-- CaseNumber Column -->
+    <ng-container matColumnDef="numeroDossier">
+      <mat-header-cell 
+        *matHeaderCellDef
+        mat-sort-header>Numero de Dossier</mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.numeroDossier}} </mat-cell>
+    </ng-container>
+
+    <!-- Category Column -->
+    <ng-container matColumnDef="categorie">
+      <mat-header-cell 
+        *matHeaderCellDef
+        mat-sort-header> Categorie </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.categorie}} </mat-cell>
+    </ng-container>
+
+    <!-- CreationDate Column -->
+    <ng-container matColumnDef="dateCreation">
+      <mat-header-cell 
+        *matHeaderCellDef
+        mat-sort-header> Date Creation </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.dateCreation}} </mat-cell>
+    </ng-container>
+
+    <!-- Status Column -->
+    <ng-container matColumnDef="statut">
+      <mat-header-cell 
+        *matHeaderCellDef
+        mat-sort-header> Status </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.statut}} </mat-cell>
+    </ng-container>
+
+    <!-- Location Column -->
+    <ng-container matColumnDef="localisation">
+      <mat-header-cell 
+        *matHeaderCellDef
+        mat-sort-header> Localisation </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.localisation}} </mat-cell>
     </ng-container>
 
     <!-- Name Column -->
@@ -48,18 +95,58 @@
       <mat-cell *matCellDef="let element"> {{element.nom}} </mat-cell>
     </ng-container>
 
+    <!-- Gender Column -->
+    <ng-container matColumnDef="genre">
+      <mat-header-cell 
+        *matHeaderCellDef
+        mat-sort-header> Genre </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.genre}} </mat-cell>
+    </ng-container>
+
+    <!-- Nationality Column -->
+    <ng-container matColumnDef="nationalite">
+      <mat-header-cell 
+        *matHeaderCellDef
+        mat-sort-header> Nationalite </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.nationalite}} </mat-cell>
+    </ng-container>
+
     <!-- FirstName Column -->
     <ng-container matColumnDef="prenom">
       <mat-header-cell 
         *matHeaderCellDef
-        mat-sort-header> Prénom </mat-header-cell>
+        mat-sort-header> Prenom </mat-header-cell>
       <mat-cell *matCellDef="let element"> {{element.prenom}} </mat-cell>
+    </ng-container>
+
+    <!-- SuspectSpecific Column -->
+    <ng-container matColumnDef="suspectSpecific">
+      <mat-header-cell 
+        *matHeaderCellDef
+        mat-sort-header> Consultation </mat-header-cell>
+      <mat-cell *matCellDef="let element">
+        <button mat-button
+                (click)="suspectSpecific(url.SPRING_URL_GET_SUSPECTS, element.id)"
+                color="primary">Acceder</button>
+      </mat-cell>
+    </ng-container>
+
+    <!-- CaseSpecific Column -->
+    <ng-container matColumnDef="caseSpecific">
+      <mat-header-cell 
+        *matHeaderCellDef
+        mat-sort-header> Consultation </mat-header-cell>
+      <mat-cell *matCellDef="let element">
+        <button mat-button
+                (click)="suspectSpecific(url.SPRING_URL_GET_CASES, element.numeroDossier)"
+                color="primary">Acceder</button>
+      </mat-cell>
     </ng-container>
 
 
     <!-- Rows -->
-    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
-    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+    <mat-header-row *matHeaderRowDef="researchService.displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: researchService.displayedColumns;"></mat-row>
   </mat-table>
 
   <!-- Paginator -->
@@ -70,3 +157,5 @@
   </mat-paginator>
 
 </div>
+
+

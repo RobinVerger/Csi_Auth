@@ -1,18 +1,25 @@
 import { Component, OnInit, Inject, ViewChild } from '@angular/core';
 
+/* Services */
+import { ResearchService } from '../services/research.service';
+
+/* Router */
+import { ActivatedRoute, Router } from '@angular/router';
 
 /* Data */
 import { ISuspect } from '../../shared/models/iSuspect';
-import { ActivatedRoute, Router } from '@angular/router';
-import { ResearchService } from '../services/research.service';
+import { URL_LIST } from '../../shared/data/URL-list';
 
 /* Rxjs */
 import { Observable } from "rxjs/Observable";
+import 'rxjs/add/operator/switchMap';
+import 'rxjs/add/operator/map';
 
 /* Utilities */
 import { MatTableDataSource } from '@angular/material/table';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
+
 
 @Component({
   selector: 'research-content',
@@ -21,35 +28,46 @@ import { MatSort } from '@angular/material/sort';
 })
 export class ResearchContentComponent implements OnInit {
 
-   suspects$: ISuspect[];
-
-   /* Table config */
-   displayedColumns = ['numero', 'nom', 'prenom'];
-   dataSource = new MatTableDataSource<ISuspect>(this.suspects$);
+   dataSource : MatTableDataSource<any>;
+   typeOfRequest: string = '';
+   researched: boolean = false;
+   
    @ViewChild(MatPaginator) paginator: MatPaginator;
    @ViewChild(MatSort) sort: MatSort;
 
+
   constructor(
-      private researchService: ResearchService,
-      @Inject('mock_values') private ELEMENT_DATA : Element[]
+      public researchService: ResearchService,
+      @Inject('url') public url: URL_LIST,
+      private router: Router
     ) {}
 
     /* LifeCycle Methods */
-  ngOnInit() {
-    this.getAllSuspects();
-    console.log(this.dataSource);
-  }
-  
-  ngAfterViewInit() {
-    this.dataSource.paginator = this.paginator;
-    this.dataSource.sort = this.sort;
-  }
+  ngOnInit() {}
  
+
   /* Http Call */
-   getAllSuspects() {
-     this.researchService.getAllSuspects()
-                         .do(res =>  console.log(res[0]['nom']))
-                         .subscribe(res => this.suspects$ = res);
+  getList(path: string, typeData: string) {
+
+    /* Define the type of table */
+    this.researchService.defineTypeTable(typeData);
+
+     /* Request the data */
+     this.researchService.getList(path)
+                         .subscribe(res => {
+                          this.dataSource = new MatTableDataSource<any>(res);
+                          this.dataSource.paginator = this.paginator;
+                          this.dataSource.sort = this.sort;
+                          this.researched= true;
+                         }
+                        );
+   }
+
+   suspectSpecific(path,id){
+     path = `${path}/${id}`
+     console.log(path);
+     // this.researchService.getSpecific(path)
+       //                   .subscribe(res => console.log(res));
    }
 
    /* Filtering method */
