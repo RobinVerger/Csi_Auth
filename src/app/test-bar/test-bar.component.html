@@ -2,22 +2,32 @@
     *ngIf="barConfig.isVisible"
     color="primary">
     <mat-card>
-      <div class="wrapper">
+      
+    <!-- Sidenav Container -->    
+    <div class="wrapper">
     <mat-sidenav-container >
+
       <!-- Sidenav -->
       <mat-sidenav 
         #menuSidebar
         mode="side">
+
+        <!-- Expansion panel one -->
         <mat-expansion-panel>
           <mat-expansion-panel-header>
-              <h1>Http Calls</h1>
+            <h1>Http Calls</h1>
           </mat-expansion-panel-header>
           <ng-template matExpansionPanelContent>
-              <button mat-button color="primary" (click)="httpCall(this.url.SPRING_URL)">Test Http Call</button>
-              <button mat-button color="primary" (click)="httpCall(this.url.ERROR_URL)">Error Http Call</button>
+            <!-- Http call buttons -->
+            <button mat-button color="primary" (click)="httpCall(this.url.SPRING_URL_GET_SUSPECTS)">Test Http Call</button>
+            <button mat-button color="primary" (click)="httpCall(this.url.ERROR_URL)">Error Http Call</button>
+            <button mat-button color="primary" (click)="httpCall(this.url.AUTH_URL_USER)">Auth Http Call</button>
           </ng-template>
         </mat-expansion-panel>
         <mat-expansion-panel>
+          
+          
+          <!-- Expansion panel two -->
           <mat-expansion-panel-header>
               <h1>TEST2</h1>
           </mat-expansion-panel-header>
@@ -27,10 +37,12 @@
           </ng-template>
         </mat-expansion-panel>
       </mat-sidenav>
+
       <!-- Sidenav Content -->
       <mat-sidenav-content 
         fxLayout="row"
         fxLayoutAlign="space-between center">
+
           <!-- Navigation buttons -->
           <div class="Buttons">
             <button mat-icon-button (click)="menuSidebar.toggle()">
@@ -42,10 +54,13 @@
             <button mat-raised-button color="accent" (click)="generateToken()">Generate Random Jwt</button>
             <button mat-raised-button color="warn" (click)="deleteToken()">Delete Random Jwt</button>
           </div>  
+
+          <!-- Authentication toggle -->
           <mat-slide-toggle
             color="primary"
             [checked]="auth.isLoggedIn()"
             (change)="toggleAuthentication()">Authenticated</mat-slide-toggle>
+
         </mat-sidenav-content>
       </mat-sidenav-container>
     </div>

@@ -29,9 +29,8 @@ export class LoginUserComponent implements OnInit {
 
    // console.log(JSON.stringify(payload));
     this.api.post('http://localhost:4242/api/auth', payload)
-     .subscribe(data => {
-       console.log('token set to:' + data);
-       this.auth.setToken(data);
+     .subscribe(resp => {
+       this.auth.setToken(resp);
         this.router.navigate(['main'], { replaceUrl : true });
       });
   }

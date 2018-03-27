@@ -11,6 +11,7 @@ export class URL_LIST {
   /* CSI-BACK URL  */
   SPRING_URL =  "http://localhost:8080/csi"; //Base Url
   SPRING_URL_GET_SUSPECTS = "http://localhost:8080/csi/suspects"; 
+  SPRING_URL_GET_SUSPECT = "http://localhost:8080//csi/suspect"; 
 
   /* AUTHENTIFICATION SERVER */
   AUTH_URL = "http://localhost:4242"; //Base Url
@@ -22,3 +23,5 @@ export class URL_LIST {
   FAKE_USER_PREF = "/assets/data/favoriteCases.json"
 
 }
+
+//localhost/csi/suspect/link -> lie un suspect à une enquete (post)

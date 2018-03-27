@@ -1,14 +1,21 @@
-.example-container {
+.table-container {
   display: flex;
   flex-direction: column;
-  //  max-height: 500px;
   min-width: 300px;
   max-width: 90%;
 
   margin: 50px auto;
 }
 
+.table-header {
+  min-height: 64px;
+  padding: 8px 24px 0;
+}
+
 .mat-table {
   overflow: auto;
-  //max-height: 500px;
+}
+mat-card {
+  width: 85%;
+  margin: 50px auto;
 }

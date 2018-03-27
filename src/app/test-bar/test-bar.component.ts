@@ -18,7 +18,7 @@ import { URL_LIST } from '../shared/data/URL-list';
 export class TestBarComponent implements OnInit {
 
   /* JWT fake token */
-  token: string = 'random token';
+  authToken = {token : 'random token'};
   test_response;
   
   constructor(
@@ -42,7 +42,7 @@ export class TestBarComponent implements OnInit {
 
   /* Generate and destroy quick token stored in LocalStorage for tests */
   generateToken() {
-    localStorage.setItem(this.auth.storageKey, this.token);
+    localStorage.setItem(this.auth.storageKey, this.authToken.token);
     console.log('Setting localStorage Item to: ' + this.auth.getToken());
   }
   deleteToken() {

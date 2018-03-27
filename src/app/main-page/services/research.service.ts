@@ -15,6 +15,6 @@ export class ResearchService {
   ) { }
 
   getAllSuspects(): Observable<ISuspect[]> {
-    return this.api.get(this.url.SPRING_URL_GET_SUSPECTS);
+    return this.api.get(this.url.SPRING_URL_GET_SUSPECTS).do(x => console.log(x));
   }
 }

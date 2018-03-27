@@ -7,8 +7,8 @@ export class AuthService {
 
   constructor(private router : Router) { }
 
-  setToken(token: string) {
-    localStorage.setItem(this.storageKey, token);
+  setToken(resp) {
+    localStorage.setItem(this.storageKey, resp.token);
   }
   getToken() {
     return localStorage.getItem(this.storageKey);
