@@ -30,9 +30,8 @@ import { ResearchContentComponent } from './research-content/research-content.co
 /* Test purpose */
 import { TestBarModule } from '../test-bar/test-bar.module';
 import { TestComponentComponent } from './shared/test-component/test-component.component';
-import { ELEMENT_DATA } from '../shared/data/mock-const-data';
-import { SusList } from '../shared/data/mock-const-suspects';
-import { TableSuspectComponent } from './research-content/table-suspect/table-suspect.component';
+
+
 
 
 
@@ -57,13 +56,11 @@ import { TableSuspectComponent } from './research-content/table-suspect/table-su
       DashboardCardComponent,
       TestComponentComponent,
       ResearchContentComponent,
-      TableSuspectComponent,
+
   ],
   providers: [
       SidebarService,
-      ResearchService,
-      { provide: 'mock_values', useValue: ELEMENT_DATA },
-      { provide: 'mock_suspects', useValue: SusList }
+      ResearchService
     ]
 })
 export class MainPageModule { }

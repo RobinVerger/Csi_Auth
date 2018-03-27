@@ -28,7 +28,7 @@ export class DashboardComponent implements OnInit {
     this.getUserPrefs(this.url.FAKE_USER_PREF);
   }
 
-  getUserPrefs(url){
+  getUserPrefs(url){ 
     this.api.get(url)
       .map(data => this.favCases$ = data['fav_case']['data'])
       //.do(x => console.log(x))
