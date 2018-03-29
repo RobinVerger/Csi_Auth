@@ -11,7 +11,7 @@
                      name="nom" 
                      #nom="ngModel" 
                      placeholder="Nom" 
-                     ngModel 
+                     [(ngModel)]="formData.nom" 
                      required
                      minlength="3">
               <mat-hint align="end"> Trois charactères minimum</mat-hint>
@@ -25,7 +25,7 @@
                      name="prenom"
                      #firstName="ngModel" 
                      placeholder="Prenom" 
-                     ngModel 
+                     [(ngModel)]="formData.prenom" 
                      required
                      minlength="3">
               <mat-hint align="end"> Trois charactères minimum</mat-hint>
@@ -36,37 +36,36 @@
             
             <mat-radio-group name="genre"
                              #gender="ngModel" 
-                             ngModel>
+                             [(ngModel)]="formData.genre">
               <label>Genre: </label>
               <div class="radio-buttons">
                 <mat-radio-button value="M">Homme</mat-radio-button>
                 <br/>
                 <mat-radio-button value="F">Femme</mat-radio-button>
                 <br/>
-                <mat-radio-button value="I">Indefini</mat-radio-button>
               </div>
             </mat-radio-group>
             <br/>
       
             <mat-form-field>
               <label>Date de Naissance</label>
-              <input matInput type="date" name="dateNaissance" ngModel>
+              <input matInput type="date" name="dateNaissance" [(ngModel)]="formData.dateNaissance">
             </mat-form-field>
             <br/>
       
             <mat-form-field>
-              <input matInput type="text" name="nationalite" placeholder="Nationalité" ngModel>
+              <input matInput type="text" name="nationalite" placeholder="Nationalité" [(ngModel)]="formData.nationalite">
             </mat-form-field>
             <br/>
       
             <mat-form-field>
-              <input matInput type="number" name="taille" placeholder="Taille" ngModel>
+              <input matInput type="number" name="taille" placeholder="Taille" [(ngModel)]="formData.taille">
               <mat-hint align="end"> Entrez un chiffre de type "0.00"</mat-hint>
             </mat-form-field>
             <br/>
       
             <mat-form-field>
-              <input matInput type="number" name="poids" placeholder="Poids" ngModel>
+              <input matInput type="number" name="poids" placeholder="Poids" [(ngModel)]="formData.poids">
             </mat-form-field>
             <br/>
   
@@ -76,27 +75,27 @@
           <div class="rightPart">
 
             <mat-form-field>
-              <textarea matInput type="text" name="adresseConnues" placeholder="Adresse" ngModel></textarea>
+              <textarea matInput type="text" name="adresseConnues" placeholder="Adresse" [(ngModel)]="formData.adressesConnues"></textarea>
             </mat-form-field>
             <br/>
   
             <mat-form-field>
-              <textarea matInput type="text" name="signeDistinctif" placeholder="Signe distinctif" ngModel></textarea>
+              <textarea matInput type="text" name="signeDistinctif" placeholder="Signe distinctif" [(ngModel)]="formData.signeDistinctif"></textarea>
             </mat-form-field>
             <br/>
   
             <mat-form-field>
-              <input matInput type="text" name="photo" placeholder="Photo" ngModel>
+              <input matInput type="text" name="photo" placeholder="Photo" [(ngModel)]="formData.photo">
             </mat-form-field>
             <br/>
   
             <mat-form-field>
-              <input matInput type="text" name="empreinte" placeholder="Empreinte" ngModel>
+              <input matInput type="text" name="empreinte" placeholder="Empreinte" [(ngModel)]="formData.empreinte">
             </mat-form-field>
             <br/>
   
-            <mat-radio-group name="casierJudiciaire" ngModel>
-              <label>Le Suspect a un casier : </label>
+            <mat-radio-group name="casierJudiciaire" [(ngModel)]="formData.casierJudiciaire">
+              <label>Le suspect a un casier : </label>
               <div class="radio-buttons">
                 <mat-radio-button value="true">Oui</mat-radio-button>
                 <br/>
@@ -106,12 +105,12 @@
             <br/>
   
             <mat-form-field>
-              <input matInput type="number" name="condamnations" placeholder="Nombre de condamnations" ngModel>
+              <input matInput type="number" name="condamnations" placeholder="Nombre de condamnations" [(ngModel)]="formData.condamnations">
             </mat-form-field>
             <br/>
   
             <mat-form-field>
-              <mat-select type="text" name="typeCondamnation" placeholder="Type de condamnations" ngModel>
+              <mat-select type="text" name="typeCondamnation" placeholder="Type de condamnations" [(ngModel)]="formData.typeCondamnation">
                 <mat-option value="Homicide">Homicide</mat-option>
                 <mat-option value="Tentative de meurtre">Tentative de meurtre</mat-option>
                 <mat-option value="Vol qualifié">Vol qualifié</mat-option>
@@ -142,10 +141,11 @@
       </form>
 
       <!-- testPurpose -->
-      <!-- <div class="feedback">
-          <h1>{{upDateForm.value | json}}</h1>
-          <h1>{{upDateForm.valid | json}}</h1>
-      </div> -->
-
+      <div class="feedback">
+        <h1>{{upDateForm.value | json}}</h1>
+        <h1>{{upDateForm.valid | json}}</h1>
+      </div>
+      <button mat-raised-button (click)="initForm()">Click</button>
+      
 </mat-card>
 

@@ -10,13 +10,13 @@
 
   <!-- Tab detail -->
   <mat-tab label="Detail" [disabled]="researchService.detailTabIsDisabled">
-    <card-suspect *ngIf="researchService.resultType=== 'suspect'"></card-suspect>
-    <card-case *ngIf="researchService.resultType=== 'case'"></card-case>
+    <card-suspect *ngIf="researchService.resultType==='suspect'"></card-suspect>
+    <card-case *ngIf="researchService.resultType==='case'"></card-case>
   </mat-tab>
   
   <!-- Tab admin -->
   <mat-tab label="Administration">
-      <!-- <administration></administration> -->
-      <app-test-component></app-test-component>
+      <administration></administration>
+      <!-- <app-test-component></app-test-component> -->
   </mat-tab>
 </mat-tab-group>

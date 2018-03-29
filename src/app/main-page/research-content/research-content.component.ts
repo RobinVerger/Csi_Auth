@@ -29,7 +29,7 @@ import { MatSort } from '@angular/material/sort';
 export class ResearchContentComponent implements OnInit {
 
    dataSource : MatTableDataSource<any>;
-   typeOfRequest: string = '';
+   //typeOfRequest: string = '';
    researched: boolean = false; //boolean used in ngIf, tho hide the table if empty
    
    @ViewChild(MatPaginator) paginator: MatPaginator;
@@ -49,14 +49,15 @@ export class ResearchContentComponent implements OnInit {
   /* Http Calls */
 
   /* Generic list getter */
-  getList(path: string, typeData: string) {
+  getList(path: string) {
 
-    /* Define the type of table */
-    this.researchService.defineTypeTable(typeData);
-
-     /* Request the data */
-     this.researchService.getList(path)
-                         .subscribe(res => {
+    
+    /* Request the data */
+    this.researchService.getList(path)
+    .subscribe(res => {
+                          /* Define the type of table */
+                          this.researchService.defineTypeTable(res.type);
+                          res = res['data'];
                           this.dataSource = new MatTableDataSource<any>(res);
                           this.dataSource.paginator = this.paginator;
                           this.dataSource.sort = this.sort;
@@ -66,23 +67,22 @@ export class ResearchContentComponent implements OnInit {
    }
 
    /* Generic Specific consultation */
-   suspectSpecific(path, id, resType){
+   suspectSpecific(path, id, ReqType){
 
      path = `${path}/${id}` //set the path based on id
      this.researchService.getSpecific(path)
                          .subscribe(res => {
-
+                           
                           /* Store the data inside the service */ 
-                          this.researchService.result$ = res;
-
-                           /* Set up the resultType */
-                           switch(resType){
-                             case "suspect":
-                             this.researchService.resultType = "suspect";
-                              break;
-                              case "case":
-                              this.researchService.resultType = "case";
-                             break;
+                          this.researchService.result$ = res['data'];
+                          /* Set up the resultType */
+                          switch(res.type){
+                            case "suspect":
+                            this.researchService.resultType = "suspect";
+                            break;
+                            case "enquete":
+                            this.researchService.resultType = "case";
+                            break;
                            }
 
                            /* Enable tab Detail */

@@ -23,15 +23,13 @@
 
                           <!-- Case Date -->
                           <mat-form-field *ngSwitchCase="'date'">
-                            <label></label>
+                            <label>{{prop.label}}</label>
                             <input 
                               matInput
                               [type]="prop.type"
+                              [value]="prop.value"
                               [name]="prop.key"
-                              [placeholder]="prop.placeholder"
-                              [formControlName]="prop.key"
-                              [required]="prop.required"
-                              [minlength]="prop.minlength">
+                              [formControlName]="prop.key">
                           </mat-form-field>
 
                           <!-- Case Radio Inputs -->
@@ -41,7 +39,7 @@
                             [formControlName]="prop.key"
                             *ngSwitchCase="'radio'">
 
-                              <label>Genre: </label>
+                              <label>{{prop.label}} </label>
                               <!-- Style div -->
                               <div class="radio-buttons" *ngFor="let option of prop.options"> 
                                 <mat-radio-button 
@@ -62,6 +60,7 @@
                                           [value]="option.value">{{option.label}}</mat-option>
                             </mat-select>
                           </mat-form-field>
+
                         </div>
           
                       </div>
@@ -88,4 +87,4 @@
                       <h1>{{updateForm.valid | json}}</h1>
                   </div>
             
-            </mat-card>
+</mat-card>

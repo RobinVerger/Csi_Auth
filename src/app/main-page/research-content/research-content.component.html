@@ -13,11 +13,11 @@
     <!-- List Cases -->
     <button mat-button 
             color="primary"
-            (click)="getList(url.SPRING_URL_GET_CASES, 'case')">Fetch Case List</button>
+            (click)="getList(url.SPRING_URL_GET_CASES)">Fetch Case List</button>
     <!-- List Suspects -->
     <button mat-button 
             color="primary" 
-            (click)="getList(url.SPRING_URL_GET_SUSPECTS, 'suspect')"
+            (click)="getList(url.SPRING_URL_GET_SUSPECTS)"
             >Fetch Suspect List</button>
     <button mat-button color="primary">Fetch User List</button>
   </mat-card-actions>
@@ -126,7 +126,7 @@
         mat-sort-header> Consultation </mat-header-cell>
       <mat-cell *matCellDef="let element">
         <button mat-button
-                (click)="suspectSpecific(url.SPRING_URL_GET_SUSPECT, element.id, 'suspect')"
+                (click)="suspectSpecific(url.SPRING_URL_GET_SUSPECT, element.id)"
                 color="primary">Acceder</button>
       </mat-cell>
     </ng-container>
@@ -138,7 +138,7 @@
         mat-sort-header> Consultation </mat-header-cell>
       <mat-cell *matCellDef="let element">
         <button mat-button
-                (click)="suspectSpecific(url.SPRING_URL_GET_CASE, element.numeroDossier, 'case')"
+                (click)="suspectSpecific(url.SPRING_URL_GET_CASE, element.numeroDossier)"
                 color="primary">Acceder</button>
       </mat-cell>
     </ng-container>

@@ -17,38 +17,101 @@ export class TestComponentComponent implements OnInit {
 
   updateForm: FormGroup;
   
-  suspectModel = {
+  suspectModel: ISuspectModel = {
     nom : {
-      label: 'nom',
+      label: 'Nom',
       placeholder: 'Nom',
-      value: 'Juri',
+      value: 'Juri', //to change
       type: 'text',
       required: true,
       minlength: 3
     },
     prenom : {
-      label: 'prenom',
+      label: 'Prenom',
       placeholder: 'Nom',
-      value: 'Johnson',
+      value: 'Johnson',//to change
       type: 'text',
-      required: true
+      required: true,
+      minlength: 3
+    },
+    dateNaissance : {
+      label: 'Date de Naissance',
+      value: '1988-11-26',//to change
+      type: 'date',
+    },
+    nationalite : {
+      label: 'Nationalité',
+      placeholder: 'Nationalité',
+      value: 'xxx', //to change
+      type: 'text',
+    },
+    taille : {
+      label: 'Taille',
+      placeholder: 'Taille',
+      value: 1, //to change
+      type: 'number',
+    },
+    poids : {
+      label: 'Poids',
+      placeholder: 'Poids',
+      value: 1222 , //to change
+      type: 'number',
+    },
+    adresseConnues : {
+      label: 'Adresse',
+      placeholder: 'Adresse',
+      value: 'xxxxxxxx', //to change
+      type: 'text',
+    },
+    signeDistinctif : {
+      label: 'Signe distinctif',
+      placeholder: 'Signe distinctif',
+      value: 'xxxxxxx', //to change
+      type: 'text',
+    },
+    photo : {
+      label: 'Photo',
+      placeholder: 'Photo',
+      value: 'xxxxxxx', //to change
+      type: 'text',
+    },
+    empreinte : {
+      label: 'Empreinte',
+      placeholder: 'Empreinte',
+      value: 'xxxxxxx', //to change
+      type: 'text',
+    },
+    condamnations : {
+      label: 'Nombre de condamnations',
+      placeholder: 'Nombre de condamnations',
+      value: null, //to change
+      type: 'number',
     },
     genre: {
-      label: 'genre',
-      value: '',
+      label: 'Genre',
+      value: '', 
       type: 'radio',
       options: [
-        {label: 'Male', value: 'M'},
-        {label: 'Female', value: 'F'},
+        {label: 'Male', value: 'M'}, //to change
+        {label: 'Female', value: 'F'}, //to change
       ],
       required: true
+    },
+    casierJudiciaire: {
+      label: 'Le suspect a un casier :',
+      value: '', //to change
+      type: 'radio',
+      options: [
+        {label: 'Oui', value: true }, //to change
+        {label: 'Non', value: false } //to change
+      ]
     },
     typeCondamnation: {
       label: 'typeCondamnation',
       type: 'select',
-      value: 'Vol qualifié',
+      value: 'Vol qualifié', //to change
       options: [
-        {label: 'Tentative de meurtre', value:'Tentative de meurtre'},
+        {label: 'Tentative de meurtre', value:'Tentative de meurtre'}, 
         {label: 'Vol qualifié', value:'Vol qualifié'},
         {label: 'voies de fait graves', value:'voies de fait graves'},
         {label: 'Menaces', value:'Menaces'},

@@ -1,5 +1,12 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
-import { NgForm } from '@angular/forms';
+import {
+  Component,
+  OnInit,
+  ViewChild
+} from '@angular/core';
+import {
+  NgForm
+} from '@angular/forms';
+import { ResearchService } from '../services/research.service';
 
 @Component({
   selector: 'administration',
@@ -8,16 +15,37 @@ import { NgForm } from '@angular/forms';
 })
 export class AdministrationComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private researchService: ResearchService
+  ) {}
 
-  @ViewChild('nom') private name;
+  @ViewChild('upDateForm') public formData;
+  test = {
+    nom: "",
+    prenom: "blablablabla",
+    genre: "",
+    dateNaissance: "",
+    nationalite: "",
+    taille: "",
+    poids: "",
+    adresseConnues: "",
+    signeDistinctif: "",
+    photo: "",
+    empreinte: "",
+    casierJudiciaire: "",
+    condamnations: "",
+    typeCondamnation: ""
+  }
+  
   ngOnInit() {
   }
-
-  onSubmit(){
+  
+  onSubmit() {
     
   }
-  print(nom) {
-    console.log(nom);
+  
+  initForm() {
+    this.formData = this.researchService.result$[0];
   }
+
 }

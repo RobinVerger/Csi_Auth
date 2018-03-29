@@ -17,30 +17,9 @@ export class ResearchService {
   displayedColumns: string[] = [];
 
   /* Research Tab Path */
-  result$: Observable<any>;
-  resultType: string = "";
+  result$: Observable<any>; //if not initialized, forms and card creations will throw error because result$ will be 'undefined'
+  resultType: string = ""; //activate card and form
   detailTabIsDisabled = true;
-
-
-/* TEST PURPOSE **************************************************/
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/*********************************************************************/
-
-
-
 
 
   constructor(
@@ -62,8 +41,10 @@ export class ResearchService {
       case 'suspect':
         this.displayedColumns = ['id', 'nom', 'prenom', 'genre', 'nationalite', 'suspectSpecific'];
         break;
-      case 'case':
+        case 'enquete':
         this.displayedColumns = ['numeroDossier', 'nom', 'categorie', 'dateCreation', 'statut', 'caseSpecific'];
+        break;
+        
     }
   }
 
