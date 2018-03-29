@@ -9,12 +9,22 @@ import { Observable } from "rxjs/Observable";
 @Injectable()
 export class ResearchService {
 
+  /* Tab index */
+  currentIndex: number = 0;
+
+  /* Table Config param */
   displayedColumns: string[] = [];
+
+  /* Research Tab Path */
+  result$: Observable<any>;
+  resultType: string = "";
+  detailTabIsDisabled = true;
 
   constructor(
     private api: ApiService,
   ) { }
 
+  /* Http Calls */
   getList(path): Observable<any> {
     return this.api.get(path);
   }
@@ -22,6 +32,7 @@ export class ResearchService {
     return this.api.get(path);
   }
 
+  /* Table management */
   defineTypeTable(typeData) {
     /* Set the type of Table */
     switch(typeData) {
@@ -32,4 +43,5 @@ export class ResearchService {
         this.displayedColumns = ['numeroDossier', 'nom', 'categorie', 'dateCreation', 'statut', 'caseSpecific'];
     }
   }
+
 }

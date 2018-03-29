@@ -1,0 +1,36 @@
+<mat-card class="container">
+
+    <div class="card-body">
+      <!-- Card Header -->
+        <mat-card-header class="header">
+          <mat-card-title class="title">
+            <h1>{{researchService.result$.nom}}</h1>
+          </mat-card-title>
+          <mat-card-subtitle>
+            <h2>Numero d'identification:{{researchService.result$.numeroDossier}}</h2>
+          </mat-card-subtitle>
+        </mat-card-header>
+
+      <!-- Card Content -->
+        <mat-card-content>
+      
+          <p><strong>Prenom :</strong>{{researchService.result$.nom}}</p>
+          <p><strong>Genre : </strong>{{researchService.result$.categorie}}</p>
+          <p><Strong>Date de Naissance :</Strong>{{researchService.result$.dateCreation}}</p>
+          <p><Strong>Nationalité :</Strong>{{researchService.result$.localisation}}</p>
+          <p><Strong>Taille :</Strong> {{researchService.result$.statut}}m</p>
+          <p><Strong>Poids:</Strong> {{researchService.result$.classee}}kgs</p>
+
+        </mat-card-content>  
+  </div>
+
+  <!-- Card Action -->
+  <mat-card-actions align="end" class="action">
+        <button mat-icon-button routerLink="update">
+            <mat-icon aria-label="edit">edit</mat-icon> 
+        </button>
+        <button mat-button>Archiver</button>
+        <button mat-button>Lier à une affaire</button>
+  </mat-card-actions>
+
+</mat-card>

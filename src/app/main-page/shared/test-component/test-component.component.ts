@@ -10,11 +10,10 @@ export class TestComponentComponent implements OnInit {
 
   constructor() { }
 
-  @Output() tabReq = new EventEmitter<number>();
   ngOnInit() {}
+  @Output() tabReq = new EventEmitter<number>();
 
   buttonClicked() {
-    console.log('event Emitted');
     this.tabReq.emit(1);
   }
 }

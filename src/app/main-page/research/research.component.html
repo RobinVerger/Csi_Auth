@@ -1,22 +1,21 @@
 <mat-tab-group
-  (selectedIndexChange)="currentIndex=$event"
+  (selectedIndexChange)="researchService.currentIndex=$event"
   backgroundColor="primary"
-  [selectedIndex]="currentIndex">
+  [selectedIndex]="researchService.currentIndex">
 
   <!-- Tab research -->
   <mat-tab label="Recherche">
-    <research-content></research-content>
-    <app-test-component (tabReq)="currentIndex=$event" ></app-test-component>
+    <research-content (tabReq)="researchService.currentIndex=$event"></research-content>
   </mat-tab>
 
   <!-- Tab detail -->
-  <mat-tab label="Detail">
-    <button 
-    mat-raised-button
-    (click)="killIndex()">Go to Search</button>
+  <mat-tab label="Detail" [disabled]="researchService.detailTabIsDisabled">
+    <card-suspect *ngIf="researchService.resultType=== 'suspect'"></card-suspect>
+    <card-case *ngIf="researchService.resultType=== 'case'"></card-case>
   </mat-tab>
   
   <!-- Tab admin -->
-      <mat-tab label="Administration">
+  <mat-tab label="Administration">
+      <administration></administration>
   </mat-tab>
 </mat-tab-group>

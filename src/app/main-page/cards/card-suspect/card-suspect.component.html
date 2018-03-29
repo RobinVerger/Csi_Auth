@@ -1,0 +1,51 @@
+<mat-card class="container">
+
+    <div class="card-body">
+      <div class="card-info">
+      <!-- Card Header -->
+        <mat-card-header class="header">
+          <mat-card-title class="title">
+            <h1>{{researchService.result$.nom}}</h1>
+          </mat-card-title>
+          <mat-card-subtitle>
+            <h2>Numero d'identification:{{researchService.result$.id}}</h2>
+          </mat-card-subtitle>
+        </mat-card-header>
+
+      <!-- Card Content -->
+        <mat-card-content>
+      
+          <p><strong>Prenom :</strong>{{researchService.result$.prenom}}</p>
+          <p><strong>Genre : </strong>{{researchService.result$.genre}}</p>
+          <p><Strong>Date de Naissance :</Strong>{{researchService.result$.dateNaissance}}</p>
+          <p><Strong>Nationalité :</Strong>{{researchService.result$.nationalite}}</p>
+          <p><Strong>Taille :</Strong> {{researchService.result$.taille}}m</p>
+          <p><Strong>Poids:</Strong> {{researchService.result$.poids}}kgs</p>
+          <p><Strong>Adresse Connues:</Strong> {{researchService.result$.adresseConnues}}</p>
+          <p><Strong>Signes distinctifs :</Strong> {{researchService.result$.signeDistinctif}}</p>
+          <p><Strong>Empreintes:</Strong> {{researchService.result$.empreinte}}</p>
+          <p *ngIf="researchService.result$.casierJudiciaire; else noCasier"><Strong>Casier Judiciare:</Strong> Oui</p>
+          <ng-template #noCasier>
+            <p><Strong>Casier Judiciare:</Strong> pas de casier judiciaire</p>
+          </ng-template>
+          <p><Strong>Nombres de Condamnations :</Strong> {{researchService.result$.condamnations}}</p>
+          <p><Strong>Type de Condamnations :</Strong> {{researchService.result$.typeCondamnation}}</p>
+      
+        </mat-card-content>  
+    </div>
+    <!-- Card image -->
+    <div class="card-img">
+      <img mat-card-image-sm src="{{researchService.result$.photo}}" alt="Photo of {{researchService.result$.nom}}" >
+    </div>
+  </div>
+
+  <!-- Card Action -->
+  <mat-card-actions align="end" class="action">
+        <button mat-icon-button routerLink="update">
+            <mat-icon aria-label="edit">edit</mat-icon> 
+        </button>
+        <button mat-button>Archiver</button>
+        <button mat-button>Lier à une affaire</button>
+  </mat-card-actions>
+
+</mat-card>

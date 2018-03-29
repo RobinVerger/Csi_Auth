@@ -1,4 +1,4 @@
-import { Component, OnInit, Inject, ViewChild } from '@angular/core';
+import { Component, OnInit, Inject, ViewChild, Output, EventEmitter } from '@angular/core';
 
 /* Services */
 import { ResearchService } from '../services/research.service';
@@ -30,23 +30,25 @@ export class ResearchContentComponent implements OnInit {
 
    dataSource : MatTableDataSource<any>;
    typeOfRequest: string = '';
-   researched: boolean = false;
+   researched: boolean = false; //boolean used in ngIf, tho hide the table if empty
    
    @ViewChild(MatPaginator) paginator: MatPaginator;
    @ViewChild(MatSort) sort: MatSort;
 
+   /* Event that change the Tab */
+   @Output() tabReq = new EventEmitter<number>();
 
   constructor(
-      public researchService: ResearchService,
-      @Inject('url') public url: URL_LIST,
-      private router: Router
+      private researchService: ResearchService,
+      @Inject('url') public url: URL_LIST
     ) {}
 
-    /* LifeCycle Methods */
   ngOnInit() {}
  
 
-  /* Http Call */
+  /* Http Calls */
+
+  /* Generic list getter */
   getList(path: string, typeData: string) {
 
     /* Define the type of table */
@@ -58,20 +60,40 @@ export class ResearchContentComponent implements OnInit {
                           this.dataSource = new MatTableDataSource<any>(res);
                           this.dataSource.paginator = this.paginator;
                           this.dataSource.sort = this.sort;
-                          this.researched= true;
+                          this.researched= true; //boolean used in ngIf, tho hide the table if empty
                          }
                         );
    }
 
-   suspectSpecific(path,id){
-     path = `${path}/${id}`
-     console.log(path);
-     // this.researchService.getSpecific(path)
-       //                   .subscribe(res => console.log(res));
+   /* Generic Specific consultation */
+   suspectSpecific(path, id, resType){
+
+     path = `${path}/${id}` //set the path based on id
+     this.researchService.getSpecific(path)
+                         .subscribe(res => {
+
+                          /* Store the data inside the service */ 
+                          this.researchService.result$ = res;
+
+                           /* Set up the resultType */
+                           switch(resType){
+                             case "suspect":
+                             this.researchService.resultType = "suspect";
+                              break;
+                              case "case":
+                              this.researchService.resultType = "case";
+                             break;
+                           }
+
+                           /* Enable tab Detail */
+                           this.researchService.detailTabIsDisabled = false;
+                           this.tabReq.emit(1); //switch the tab to Detail
+                          });
+
    }
 
    /* Filtering method */
-   applyFilter(filterValue: string) {
+  applyFilter(filterValue: string) {
     filterValue = filterValue.trim(); // Remove whitespace
     filterValue = filterValue.toLowerCase(); // MatTableDataSource defaults to lowercase matches
     this.dataSource.filter = filterValue;

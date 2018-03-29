@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ResearchService } from '../services/research.service';
 
 @Component({
   selector: 'research',
@@ -7,19 +8,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ResearchComponent implements OnInit {
   
-  currentIndex: number = 0;
-  constructor() { }
+  
+  constructor(
+    private researchService : ResearchService
+  ) { }
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
-  setIndex() {
-    this.currentIndex = 1;
-  }
-  killIndex() {
-    this.currentIndex--;
-  }
-  log(event){
-    console.log(event);
-  }
 }

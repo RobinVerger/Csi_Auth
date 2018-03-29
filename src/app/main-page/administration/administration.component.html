@@ -1,0 +1,151 @@
+<mat-card>
+    <form #upDateForm="ngForm" (ngSubmit)="onSubmit(upDateForm.value)" class="form-container">
+
+        <div class="inputs">
+        <!-- Left part -->
+          <div class="leftPart">
+          
+            <mat-form-field>
+              <input matInput 
+                     type="text" 
+                     name="nom" 
+                     #nom="ngModel" 
+                     placeholder="Nom" 
+                     ngModel 
+                     required
+                     minlength="3">
+              <mat-hint align="end"> Trois charactères minimum</mat-hint>
+              <mat-error *ngIf="nom.errors?.required">Ce champ est obligatoire</mat-error>
+              <mat-error *ngIf="nom.errors?.minlength">{{nom.errors?.minlength.requiredLength}} charactères minimum, vous en avez {{nom.errors?.minlength.actualLength}} </mat-error>
+            </mat-form-field>
+            <br/>
+            <mat-form-field>
+              <input matInput 
+                     type="text" 
+                     name="prenom"
+                     #firstName="ngModel" 
+                     placeholder="Prenom" 
+                     ngModel 
+                     required
+                     minlength="3">
+              <mat-hint align="end"> Trois charactères minimum</mat-hint>
+              <mat-error *ngIf="firstName.errors?.required">Ce champ est obligatoire</mat-error>
+              <mat-error *ngIf="firstName.errors?.minlength">{{firstName.errors?.minlength.requiredLength}} charactères minimum, vous en avez {{firstName.errors?.minlength.actualLength}} </mat-error>
+            </mat-form-field>
+            <br/>
+            
+            <mat-radio-group name="genre"
+                             #gender="ngModel" 
+                             ngModel>
+              <label>Genre: </label>
+              <div class="radio-buttons">
+                <mat-radio-button value="M">Homme</mat-radio-button>
+                <br/>
+                <mat-radio-button value="F">Femme</mat-radio-button>
+                <br/>
+                <mat-radio-button value="I">Indefini</mat-radio-button>
+              </div>
+            </mat-radio-group>
+            <br/>
+      
+            <mat-form-field>
+              <label>Date de Naissance</label>
+              <input matInput type="date" name="dateNaissance" ngModel>
+            </mat-form-field>
+            <br/>
+      
+            <mat-form-field>
+              <input matInput type="text" name="nationalite" placeholder="Nationalité" ngModel>
+            </mat-form-field>
+            <br/>
+      
+            <mat-form-field>
+              <input matInput type="number" name="taille" placeholder="Taille" ngModel>
+              <mat-hint align="end"> Entrez un chiffre de type "0.00"</mat-hint>
+            </mat-form-field>
+            <br/>
+      
+            <mat-form-field>
+              <input matInput type="number" name="poids" placeholder="Poids" ngModel>
+            </mat-form-field>
+            <br/>
+  
+          </div>
+
+          <!-- Right part -->
+          <div class="rightPart">
+
+            <mat-form-field>
+              <textarea matInput type="text" name="adresseConnues" placeholder="Adresse" ngModel></textarea>
+            </mat-form-field>
+            <br/>
+  
+            <mat-form-field>
+              <textarea matInput type="text" name="signeDistinctif" placeholder="Signe distinctif" ngModel></textarea>
+            </mat-form-field>
+            <br/>
+  
+            <mat-form-field>
+              <input matInput type="text" name="photo" placeholder="Photo" ngModel>
+            </mat-form-field>
+            <br/>
+  
+            <mat-form-field>
+              <input matInput type="text" name="empreinte" placeholder="Empreinte" ngModel>
+            </mat-form-field>
+            <br/>
+  
+            <mat-radio-group name="casierJudiciaire" ngModel>
+              <label>Le Suspect a un casier : </label>
+              <div class="radio-buttons">
+                <mat-radio-button value="true">Oui</mat-radio-button>
+                <br/>
+                <mat-radio-button value="false">non</mat-radio-button>
+              </div>
+            </mat-radio-group>
+            <br/>
+  
+            <mat-form-field>
+              <input matInput type="number" name="condamnations" placeholder="Nombre de condamnations" ngModel>
+            </mat-form-field>
+            <br/>
+  
+            <mat-form-field>
+              <mat-select type="text" name="typeCondamnation" placeholder="Type de condamnations" ngModel>
+                <mat-option value="Homicide">Homicide</mat-option>
+                <mat-option value="Tentative de meurtre">Tentative de meurtre</mat-option>
+                <mat-option value="Vol qualifié">Vol qualifié</mat-option>
+                <mat-option value="voies de fait graves">Voies de fait graves</mat-option>
+                <mat-option value="Menaces">Menaces</mat-option>
+                <mat-option value="Harcelement">Harcelement</mat-option>
+                <mat-option value="Fraude">fraude</mat-option>
+                <mat-option value="Defaut de comparaitre">Défaut de comparaître</mat-option>
+                <mat-option value="Infractions relative aux armes">infractions relative aux armes</mat-option>
+                <mat-option value="Prostitution">Prostitution</mat-option>
+                <mat-option value="Possession de drogue">Possession de drogue</mat-option>
+                <mat-option value="trafic de drogues">Trafic de drogues</mat-option>
+              </mat-select>
+            </mat-form-field>
+            <br/>
+          </div>
+        </div>
+
+        <!-- Submit -->
+        <div class="submit">
+          <button 
+            mat-raised-button
+            [disabled]="!upDateForm.valid"
+            type="submit"
+            color="primary">Mettre à jour</button>
+        </div>
+        
+      </form>
+
+      <!-- testPurpose -->
+      <!-- <div class="feedback">
+          <h1>{{upDateForm.value | json}}</h1>
+          <h1>{{upDateForm.valid | json}}</h1>
+      </div> -->
+
+</mat-card>
+

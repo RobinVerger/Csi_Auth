@@ -26,15 +26,16 @@ import { BodyComponent } from './shared/body/body.component';
 import { FooterComponent } from './shared/footer/footer.component';
 import { DashboardCardComponent } from './dashboard-card/dashboard-card.component';
 import { ResearchContentComponent } from './research-content/research-content.component';
+/* Cards */
+import { CardCaseComponent } from './cards/card-case/card-case.component';
+import { CardSuspectComponent } from './cards/card-suspect/card-suspect.component';
+
 
 /* Test purpose */
 import { TestBarModule } from '../test-bar/test-bar.module';
 import { TestComponentComponent } from './shared/test-component/test-component.component';
-
-
-
-
-
+import { AdministrationComponent } from './administration/administration.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   imports: [
@@ -42,6 +43,7 @@ import { TestComponentComponent } from './shared/test-component/test-component.c
     MainPageRoutingModule,
     MaterialImportsModule,
     FlexLayoutModule,
+    FormsModule,
     /* TESTBAR */
     TestBarModule
 
@@ -56,6 +58,9 @@ import { TestComponentComponent } from './shared/test-component/test-component.c
       DashboardCardComponent,
       TestComponentComponent,
       ResearchContentComponent,
+      CardSuspectComponent,
+      CardCaseComponent,
+      AdministrationComponent,
 
   ],
   providers: [

@@ -13,7 +13,7 @@ export class URL_LIST {
 
       /* SUSPECTS */
       SPRING_URL_GET_SUSPECTS = "http://localhost:8080/csi/suspects"; 
-      SPRING_URL_GET_SUSPECT = "http://localhost:8080//csi/suspect"; 
+      SPRING_URL_GET_SUSPECT = "http://localhost:8080/csi/suspect"; 
       
       /* CASES */
       SPRING_URL_GET_CASES = "http://localhost:8080/csi/enquetes"; 
