@@ -6,6 +6,7 @@ import { URL_LIST } from '../../shared/data/URL-list';
 import { ISuspect } from '../../shared/models/iSuspect';
 
 import { Observable } from "rxjs/Observable";
+import { FormGroup, FormControl } from '@angular/forms';
 @Injectable()
 export class ResearchService {
 
@@ -19,6 +20,28 @@ export class ResearchService {
   result$: Observable<any>;
   resultType: string = "";
   detailTabIsDisabled = true;
+
+
+/* TEST PURPOSE **************************************************/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*********************************************************************/
+
+
+
+
 
   constructor(
     private api: ApiService,

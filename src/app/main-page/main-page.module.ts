@@ -35,7 +35,7 @@ import { CardSuspectComponent } from './cards/card-suspect/card-suspect.componen
 import { TestBarModule } from '../test-bar/test-bar.module';
 import { TestComponentComponent } from './shared/test-component/test-component.component';
 import { AdministrationComponent } from './administration/administration.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   imports: [
@@ -44,6 +44,7 @@ import { FormsModule } from '@angular/forms';
     MaterialImportsModule,
     FlexLayoutModule,
     FormsModule,
+    ReactiveFormsModule,
     /* TESTBAR */
     TestBarModule
 

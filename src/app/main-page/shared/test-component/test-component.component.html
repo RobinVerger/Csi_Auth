@@ -1,3 +1,91 @@
-<button (click)="buttonClicked()"
-        mat-raised-button
-        >Go to Detail</button>
+<mat-card>
+                <form  [formGroup]="updateForm"  (ngSubmit)="onSubmit(updateForm)" class="form-container">
+            
+                    <div class="inputs">
+                    <!-- Left part -->
+                      <div class="leftPart" *ngFor="let prop of model">
+
+                        <!-- Iterate the model and create the fields by type -->
+                        <div [ngSwitch]="prop.type">
+                
+                          <!-- Case Text Inputs -->
+                          <mat-form-field *ngSwitchCase="'text'">
+                            <input 
+                              matInput
+                              [type]="prop.type"
+                              [name]="prop.key"
+                              [placeholder]="prop.placeholder"
+                              [formControlName]="prop.key"
+                              [required]="prop.required"
+                              [minlength]="prop.minlength">
+                          </mat-form-field>
+
+
+                          <!-- Case Date -->
+                          <mat-form-field *ngSwitchCase="'date'">
+                            <label></label>
+                            <input 
+                              matInput
+                              [type]="prop.type"
+                              [name]="prop.key"
+                              [placeholder]="prop.placeholder"
+                              [formControlName]="prop.key"
+                              [required]="prop.required"
+                              [minlength]="prop.minlength">
+                          </mat-form-field>
+
+                          <!-- Case Radio Inputs -->
+                          
+                          <mat-radio-group 
+                            [value]="prop.value" 
+                            [formControlName]="prop.key"
+                            *ngSwitchCase="'radio'">
+
+                              <label>Genre: </label>
+                              <!-- Style div -->
+                              <div class="radio-buttons" *ngFor="let option of prop.options"> 
+                                <mat-radio-button 
+                                  [name]="prop.key"
+                                  [value]="option.value"
+                                  >{{option.label}}</mat-radio-button>
+                                <br/>
+                              </div>
+                            </mat-radio-group>
+                             
+                          <!-- Case select -->
+
+                          <mat-form-field *ngSwitchCase="'select'">
+                            <mat-select [placeholder]="prop.placeholder" 
+                                        [value]="prop.value"
+                                        [formControlName]="prop.key">
+                              <mat-option *ngFor="let option of prop.options" 
+                                          [value]="option.value">{{option.label}}</mat-option>
+                            </mat-select>
+                          </mat-form-field>
+                        </div>
+          
+                      </div>
+            
+                      <!-- Right part -->
+                      <div class="rightPart">
+                        asdadsadasd
+                      </div>
+                    </div>
+            
+                    <!-- Submit -->
+                    <div class="submit">
+                      <button 
+                        mat-raised-button
+                        type="submit"
+                        color="primary">Mettre à jour</button>
+                    </div>
+                    
+                  </form>
+            
+                  <!-- testPurpose -->
+                  <div class="feedback">
+                      <h1>{{updateForm.value | json}}</h1>
+                      <h1>{{updateForm.valid | json}}</h1>
+                  </div>
+            
+            </mat-card>
