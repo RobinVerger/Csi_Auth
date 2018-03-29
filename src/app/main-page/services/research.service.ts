@@ -17,7 +17,7 @@ export class ResearchService {
   displayedColumns: string[] = [];
 
   /* Research Tab Path */
-  result$: Observable<any>; //if not initialized, forms and card creations will throw error because result$ will be 'undefined'
+  result$: Object[] = []; //if not initialized, forms and card creations will throw error because result$ will be 'undefined'
   resultType: string = ""; //activate card and form
   detailTabIsDisabled = true;
 

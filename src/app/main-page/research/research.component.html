@@ -10,8 +10,14 @@
 
   <!-- Tab detail -->
   <mat-tab label="Detail" [disabled]="researchService.detailTabIsDisabled">
-    <card-suspect *ngIf="researchService.resultType==='suspect'"></card-suspect>
-    <card-case *ngIf="researchService.resultType==='case'"></card-case>
+    <card-suspect 
+      *ngIf="researchService.resultType==='suspect'"
+      (editCard)="admin.suspect.initForm()"
+      (tabReq)="researchService.currentIndex=$event"></card-suspect>
+    <card-case 
+      *ngIf="researchService.resultType==='case'"
+      (editCard)="admin.case.initForm()"
+      (tabReq)="researchService.currentIndex=$event"></card-case>
   </mat-tab>
   
   <!-- Tab admin -->

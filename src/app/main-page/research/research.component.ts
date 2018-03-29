@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { ResearchService } from '../services/research.service';
 import { TestComponentComponent } from "../shared/test-component/test-component.component";
+import { AdministrationComponent } from '../administration/administration.component';
 @Component({
   selector: 'research',
   templateUrl: './research.component.html',
@@ -13,6 +14,9 @@ export class ResearchComponent implements OnInit {
     private researchService : ResearchService
   ) { }
 
-  ngOnInit() {}
+  @ViewChild(AdministrationComponent) public admin: AdministrationComponent;
+
+  ngOnInit() {
+  }
 
 }

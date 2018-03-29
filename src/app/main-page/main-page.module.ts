@@ -36,6 +36,10 @@ import { TestBarModule } from '../test-bar/test-bar.module';
 import { TestComponentComponent } from './shared/test-component/test-component.component';
 import { AdministrationComponent } from './administration/administration.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { AdministrationSuspectComponent } from './administration/administration-suspect/administration-suspect.component';
+import { AdministrationCaseComponent } from './administration/administration-case/administration-case.component';
+import { AdministrationUserComponent } from './administration/administration-user/administration-user.component';
+import { CardUserComponent } from './cards/card-user/card-user.component';
 
 @NgModule({
   imports: [
@@ -62,6 +66,10 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
       CardSuspectComponent,
       CardCaseComponent,
       AdministrationComponent,
+      AdministrationSuspectComponent,
+      AdministrationCaseComponent,
+      AdministrationUserComponent,
+      CardUserComponent,
 
   ],
   providers: [

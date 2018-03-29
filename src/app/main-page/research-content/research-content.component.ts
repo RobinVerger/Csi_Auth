@@ -75,6 +75,7 @@ export class ResearchContentComponent implements OnInit {
                            
                           /* Store the data inside the service */ 
                           this.researchService.result$ = res['data'];
+                          console.log(this.researchService.result$);
                           /* Set up the resultType */
                           switch(res.type){
                             case "suspect":
