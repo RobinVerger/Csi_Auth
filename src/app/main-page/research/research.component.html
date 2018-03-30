@@ -18,6 +18,10 @@
       *ngIf="researchService.resultType==='case'"
       (editCard)="admin.case.initForm()"
       (tabReq)="researchService.currentIndex=$event"></card-case>
+    <card-user 
+      *ngIf="researchService.resultType==='user'"
+      (editCard)="admin.case.initForm()"
+      (tabReq)="researchService.currentIndex=$event"></card-user>
   </mat-tab>
   
   <!-- Tab admin -->

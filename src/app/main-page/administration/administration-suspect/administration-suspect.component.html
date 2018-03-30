@@ -1,4 +1,21 @@
 <mat-card>
+ <!-- Mat-Menu -->
+<button mat-mini-fab 
+color="primary" 
+[matMenuTriggerFor]="cardMenu"
+class="card-menu-button"
+>
+<mat-icon>more_vert</mat-icon>
+</button>
+<mat-menu #cardMenu="matMenu">
+<ng-template matMenuContent>
+  <button mat-menu-item (click)="suspectSwitch()">Panneau suspect</button>
+  <button mat-menu-item (click)="caseSwitch()">Panneau affaire</button>
+  <button mat-menu-item (click)="userSwitch()">Panneau agent</button>
+</ng-template>
+</mat-menu>
+
+<h1>Suspects</h1>
     <form #upDateForm="ngForm" (ngSubmit)="onSubmit(upDateForm.value)" class="form-container">
 
         <div class="inputs">
@@ -75,7 +92,7 @@
           <div class="rightPart">
 
             <mat-form-field>
-              <textarea matInput type="text" name="adresseConnues" placeholder="Adresse" [(ngModel)]="formData.adressesConnues"></textarea>
+              <textarea matInput type="text" name="adresseConnues" placeholder="Adresse" [(ngModel)]="formData.adresseConnues"></textarea>
             </mat-form-field>
             <br/>
   
@@ -130,27 +147,43 @@
         </div>
 
         <!-- Submit -->
-        <div class="submit">
-          <button 
-          mat-raised-button
-          [disabled]="!upDateForm.valid"
-          type="submit"
-          color="primary">Mettre à jour</button>
-          <button 
-            mat-button
-            (click)="clearForm()"
-            color="primary">Reinitialiser</button>
+        <div>
+            <button 
+            mat-raised-button
+            [disabled]="!upDateForm.valid"
+            type="submit"
+            color="primary">Créer</button>
         </div>
         
+        
       </form>
+      
+      <div class="submit">
+        <button 
+        mat-raised-button
+        (click)="update()"
+        [disabled]="!upDateForm.valid"
+        color="accent">Mettre à jour</button>
+        
+        <button 
+        mat-button
+        (click)="clearForm()"
+        color="primary">Reinitialiser</button>
 
-      <!-- testPurpose -->
-      <div class="feedback">
-        <h1>{{upDateForm.value | json}}</h1>
+      </div>
+
+        <!-- testPurpose -->
+        <!-- <div class="feedback">
+          <h1>{{upDateForm.value | json}}</h1>
         <h1>{{upDateForm.valid | json}}</h1>
         <h1>dashdsadkjsanjk</h1>
       </div>
 
-      
+       -->
+</mat-card>
+
+<mat-card>
+    <administration-link *ngIf="researchService.resultType=== 'suspect'"[typeSwitch]="url.SPRING_URL_POST_SUSPECT_LINK"></administration-link>
+    <administration-link *ngIf="researchService.resultType=== 'user'"[typeSwitch]="url.SPRING_URL_POST_USER_LINK"></administration-link>
 </mat-card>
 

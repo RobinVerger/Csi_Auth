@@ -1,0 +1,13 @@
+
+  <h1>Assigner a une affaire</h1>
+  <form #linkForm="ngForm" (ngSubmit) ="onSubmit(linkForm.value)" class= "form-container">
+    <mat-form-field>
+      <input matInput type="number"  name="id" placeholder="Id" [(ngModel)]="link.id">
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput type="number"  name="numeroDossier" placeholder="Numero de Dossier" [(ngModel)]="link.numeroDossier">
+    </mat-form-field>
+    <button mat-raised-button type="submit">Assigner a affaire</button>
+  </form>
+
+  <!-- <p>{{linkForm.value | json}}</p> -->

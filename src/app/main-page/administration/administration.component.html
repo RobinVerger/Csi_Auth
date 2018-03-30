@@ -1,3 +1,7 @@
-<!-- <administration-user></administration-user> -->
-<administration-suspect></administration-suspect>
-<!-- <administration-case></administration-case> -->
+
+
+<administration-suspect  *ngIf="researchService.resultType === 'suspect'"></administration-suspect>
+
+<administration-case  *ngIf="researchService.resultType === 'case'"></administration-case>
+
+<administration-user  *ngIf="researchService.resultType === 'user'"></administration-user>

@@ -27,7 +27,7 @@ export class AdministrationComponent implements OnInit {
   @ViewChild(AdministrationCaseComponent) public case: AdministrationCaseComponent;
   @ViewChild(AdministrationUserComponent) public user: AdministrationUserComponent;
   
-  
-    ngOnInit() {
+  ngOnInit() {
     }
+
 }

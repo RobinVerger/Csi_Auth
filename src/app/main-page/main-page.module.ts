@@ -40,6 +40,7 @@ import { AdministrationSuspectComponent } from './administration/administration-
 import { AdministrationCaseComponent } from './administration/administration-case/administration-case.component';
 import { AdministrationUserComponent } from './administration/administration-user/administration-user.component';
 import { CardUserComponent } from './cards/card-user/card-user.component';
+import { AdministrationLinkComponent } from './administration/administration-link/administration-link.component';
 
 @NgModule({
   imports: [
@@ -70,6 +71,7 @@ import { CardUserComponent } from './cards/card-user/card-user.component';
       AdministrationCaseComponent,
       AdministrationUserComponent,
       CardUserComponent,
+      AdministrationLinkComponent,
 
   ],
   providers: [

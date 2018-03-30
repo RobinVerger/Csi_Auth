@@ -1,0 +1,46 @@
+mat-card {
+  width: 90%;
+  margin: 50px auto;
+}
+
+form {
+
+  mat-form-field {
+    width: 100%;
+    margin: 1rem 0;
+  }
+  mat-radio-group {
+    margin: 1.5rem 0 0;
+
+    .radio-buttons {
+      margin: 0 1rem;
+    }
+  }
+
+  display:flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  
+  .inputs {
+    
+    flex: 1 0 auto;
+    
+    display: flex;
+    flex-direction: row;
+
+    .leftPart {
+      padding: 25px;
+      flex: 1 0 auto;
+    }
+    .rightPart {
+      padding: 25px;
+      flex: 1 0 auto;    
+    }
+  }
+
+  .submit{
+    flex: 0 0 auto;
+    display:flex;
+    flex-direction: row-reverse;
+  }
+}

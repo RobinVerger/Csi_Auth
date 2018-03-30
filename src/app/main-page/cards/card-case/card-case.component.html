@@ -26,11 +26,10 @@
 
   <!-- Card Action -->
   <mat-card-actions align="end" class="action">
-        <button mat-icon-button>
-            <mat-icon aria-label="edit" (click)="edit()">edit</mat-icon> 
+        <button mat-icon-button color="primary">
+            <mat-icon aria-label="edit" (click)="edit()" >edit</mat-icon> 
         </button>
-        <button mat-button>Archiver</button>
-        <button mat-button>Lier à une affaire</button>
+        <button mat-raised-button color="warn" (click)="archiver()">Archiver</button>
   </mat-card-actions>
 
 </mat-card>

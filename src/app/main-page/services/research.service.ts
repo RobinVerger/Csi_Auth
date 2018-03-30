@@ -18,7 +18,7 @@ export class ResearchService {
 
   /* Research Tab Path */
   result$: Object[] = []; //if not initialized, forms and card creations will throw error because result$ will be 'undefined'
-  resultType: string = ""; //activate card and form
+  resultType: string = "suspect"; //activate card and form
   detailTabIsDisabled = true;
 
 
@@ -33,6 +33,17 @@ export class ResearchService {
   getSpecific(path): Observable<any> {
     return this.api.get(path);
   }
+  createEntry(path, body): Observable<any> {
+  return this.api.post(path, body);
+  }
+  updateEntry(path, body, id): Observable<any> {
+  path = `${path}/${id}` //set the path based on id
+  return this.api.put(path, body);
+}
+deleteEntry(path, id): Observable<any> {
+  path = `${path}/${id}` //set the path based on id
+  return this.api.delete(path, id);
+  }
 
   /* Table management */
   defineTypeTable(typeData) {
@@ -44,7 +55,6 @@ export class ResearchService {
         case 'enquete':
         this.displayedColumns = ['numeroDossier', 'nom', 'categorie', 'dateCreation', 'statut', 'caseSpecific'];
         break;
-        
     }
   }
 

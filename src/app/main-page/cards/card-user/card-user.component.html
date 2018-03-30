@@ -1,3 +1,34 @@
-<p>
-  card-user works!
-</p>
+<mat-card class="container" *ngFor="let element of researchService.result$">
+
+    <div class="card-body">
+      <div class="card-info">
+      <!-- Card Header -->
+        <mat-card-header class="header">
+          <mat-card-title class="title">
+            <h1>{{element.nom}}</h1>
+          </mat-card-title>
+          <mat-card-subtitle>
+            <h2>Numero d'identification:{{element.id}}</h2>
+          </mat-card-subtitle>
+        </mat-card-header>
+
+      <!-- Card Content -->
+        <mat-card-content>
+      
+          <p><strong>Prenom :</strong>{{element.prenom}}</p>
+          <p><strong>Genre : </strong>{{element.genre}}</p>
+          <p><Strong>Date de Naissance :</Strong>{{element.dateNaissance}}</p>
+          
+        </mat-card-content>  
+    </div>
+    </div>
+
+  <!-- Card Action -->
+  <mat-card-actions align="end" class="action">
+        <button mat-icon-button color="accent">
+            <mat-icon aria-label="edit" (click)="edit()"  >edit</mat-icon> 
+        </button>
+        <button mat-raised-button [disabled]="true" color="warn">Archiver</button>
+  </mat-card-actions>
+
+</mat-card>

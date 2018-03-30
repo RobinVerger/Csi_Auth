@@ -1,4 +1,6 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, Inject } from '@angular/core';
+import { ResearchService } from '../../services/research.service';
+import { URL_LIST } from '../../../shared/data/URL-list';
 
 @Component({
   selector: 'card-user',
@@ -7,6 +9,10 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 })
 export class CardUserComponent implements OnInit {
 
+  constructor(
+    private researchService : ResearchService,
+    @Inject('url') private url: URL_LIST) {}
+    
   @Output() tabReq = new EventEmitter<number>();
   @Output() editCard = new EventEmitter();
   
