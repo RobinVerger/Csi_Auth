@@ -18,6 +18,11 @@
           <p><strong>Prenom :</strong>{{element.prenom}}</p>
           <p><strong>Genre : </strong>{{element.genre}}</p>
           <p><Strong>Date de Naissance :</Strong>{{element.dateNaissance}}</p>
+          <p><Strong>Grade :</Strong>{{element.grade}}</p>
+          <p><Strong>Competences :</Strong>{{element.competences}}</p>
+          <p><Strong>Status activite :</Strong>{{element.statutActivite}}</p>
+          <p><Strong>Telephone :</Strong>{{element.telephone}}</p>
+          <p><Strong>Numero enquete :</Strong>{{element.numEnquete}}</p>
           
         </mat-card-content>  
     </div>
@@ -25,7 +30,7 @@
 
   <!-- Card Action -->
   <mat-card-actions align="end" class="action">
-        <button mat-icon-button color="accent">
+        <button mat-icon-button color="primary">
             <mat-icon aria-label="edit" (click)="edit()"  >edit</mat-icon> 
         </button>
         <button mat-raised-button [disabled]="true" color="warn">Archiver</button>

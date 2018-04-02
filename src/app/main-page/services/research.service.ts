@@ -55,6 +55,9 @@ deleteEntry(path, id): Observable<any> {
         case 'enquete':
         this.displayedColumns = ['numeroDossier', 'nom', 'categorie', 'dateCreation', 'statut', 'caseSpecific'];
         break;
+        case 'agent':
+        this.displayedColumns =['id', 'nom', 'prenom', 'genre', 'nationalite', 'userSpecific'];
+        break;
     }
   }
 

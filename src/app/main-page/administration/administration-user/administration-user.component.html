@@ -69,90 +69,63 @@
               <input matInput type="date" name="dateNaissance" [(ngModel)]="formData.dateNaissance">
             </mat-form-field>
             <br/>
-      
+            
             <mat-form-field>
-              <input matInput type="text" name="nationalite" placeholder="Nationalité" [(ngModel)]="formData.nationalite">
+              <input matInput type="text" name="grade" placeholder="Grade" [(ngModel)]="formData.grade">
             </mat-form-field>
             <br/>
-      
+            
             <mat-form-field>
-              <input matInput type="number" name="taille" placeholder="Taille" [(ngModel)]="formData.taille">
-              <mat-hint align="end"> Entrez un chiffre de type "0.00"</mat-hint>
+              <input matInput type="text" name="competences" placeholder="Competences" [(ngModel)]="formData.competences">
             </mat-form-field>
             <br/>
-      
+            
+            
             <mat-form-field>
-              <input matInput type="number" name="poids" placeholder="Poids" [(ngModel)]="formData.poids">
+              <input matInput type="number" name="statutActivite" placeholder="Statut Activite" [(ngModel)]="formData.statutActivite">
             </mat-form-field>
             <br/>
-  
-          </div>
+            
 
+          </div>
+          
+          
           <!-- Right part -->
           <div class="rightPart">
-
+            
             <mat-form-field>
-              <textarea matInput type="text" name="adresseConnues" placeholder="Adresse" [(ngModel)]="formData.adressesConnues"></textarea>
+              <input matInput type="number" name="telephone" placeholder="Telephone" [(ngModel)]="formData.telephone">
             </mat-form-field>
             <br/>
   
+  
             <mat-form-field>
-              <textarea matInput type="text" name="signeDistinctif" placeholder="Signe distinctif" [(ngModel)]="formData.signeDistinctif"></textarea>
+              <input matInput type="number" name="numEnquete" placeholder="Numero Enquete" [(ngModel)]="formData.numEnquete">
             </mat-form-field>
             <br/>
   
+            
             <mat-form-field>
-              <input matInput type="text" name="photo" placeholder="Photo" [(ngModel)]="formData.photo">
+              <label>Anciennete</label>
+              <input matInput type="date" name="anciennete" [(ngModel)]="formData.anciennete">
             </mat-form-field>
             <br/>
-  
-            <mat-form-field>
-              <input matInput type="text" name="empreinte" placeholder="Empreinte" [(ngModel)]="formData.empreinte">
-            </mat-form-field>
-            <br/>
-  
-            <mat-radio-group name="casierJudiciaire" [(ngModel)]="formData.casierJudiciaire">
-              <label>Le suspect a un casier : </label>
-              <div class="radio-buttons">
-                <mat-radio-button value="true">Oui</mat-radio-button>
-                <br/>
-                <mat-radio-button value="false">non</mat-radio-button>
-              </div>
-            </mat-radio-group>
-            <br/>
-  
-            <mat-form-field>
-              <input matInput type="number" name="condamnations" placeholder="Nombre de condamnations" [(ngModel)]="formData.condamnations">
-            </mat-form-field>
-            <br/>
-  
-            <mat-form-field>
-              <mat-select type="text" name="typeCondamnation" placeholder="Type de condamnations" [(ngModel)]="formData.typeCondamnation">
-                <mat-option value="Homicide">Homicide</mat-option>
-                <mat-option value="Tentative de meurtre">Tentative de meurtre</mat-option>
-                <mat-option value="Vol qualifié">Vol qualifié</mat-option>
-                <mat-option value="voies de fait graves">Voies de fait graves</mat-option>
-                <mat-option value="Menaces">Menaces</mat-option>
-                <mat-option value="Harcelement">Harcelement</mat-option>
-                <mat-option value="Fraude">fraude</mat-option>
-                <mat-option value="Defaut de comparaitre">Défaut de comparaître</mat-option>
-                <mat-option value="Infractions relative aux armes">infractions relative aux armes</mat-option>
-                <mat-option value="Prostitution">Prostitution</mat-option>
-                <mat-option value="Possession de drogue">Possession de drogue</mat-option>
-                <mat-option value="trafic de drogues">Trafic de drogues</mat-option>
-              </mat-select>
-            </mat-form-field>
-            <br/>
+            
           </div>
         </div>
 
         <!-- Submit -->
-        <div class="submit">
+        <div>
           <button 
           mat-raised-button
           [disabled]="!upDateForm.valid"
           type="submit"
           color="primary">Créer</button>
+        </div>
+          
+        </form>
+        
+        <div class="submit">
           <button 
             mat-raised-button
             (click)="update()"
@@ -161,20 +134,17 @@
             mat-button
             (click)="clearForm()"
             color="primary">Reinitialiser</button>
-        </div>
-        
-      </form>
-
+          
+      </div>
       <!-- testPurpose -->
       <!-- <div class="feedback">
         <h1>{{upDateForm.value | json}}</h1>
         <h1>{{upDateForm.valid | json}}</h1>
-        <h1>dashdsadkjsanjk</h1>
       </div> -->
          
 </mat-card>
 
 <mat-card>
     <administration-link *ngIf="researchService.resultType=== 'suspect'"[typeSwitch]="url.SPRING_URL_POST_SUSPECT_LINK"></administration-link>
-    <administration-link *ngIf="researchService.resultType=== 'user'"[typeSwitch]="url.SPRING_URL_POST_USER_LINK"></administration-link>
+     <!-- <administration-link *ngIf="researchService.resultType=== 'user'"[typeSwitch]="url.SPRING_URL_POST_USER_LINK"></administration-link> -->
 </mat-card>

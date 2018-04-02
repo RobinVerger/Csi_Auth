@@ -67,7 +67,7 @@ export class ResearchContentComponent implements OnInit {
    }
 
    /* Generic Specific consultation */
-   suspectSpecific(path, id, ReqType){
+   getSpecific(path, id){
 
      path = `${path}/${id}` //set the path based on id
      this.researchService.getSpecific(path)
@@ -83,6 +83,9 @@ export class ResearchContentComponent implements OnInit {
                             break;
                             case "enquete":
                             this.researchService.resultType = "case";
+                            break;
+                            case "agent":
+                            this.researchService.resultType = "user";
                             break;
                            }
 

@@ -128,10 +128,11 @@
         mat-sort-header> Consultation </mat-header-cell>
       <mat-cell *matCellDef="let element">
         <button mat-button
-                (click)="suspectSpecific(url.SPRING_URL_GET_SUSPECT, element.id)"
+                (click)="getSpecific(url.SPRING_URL_GET_SUSPECT, element.id)"
                 color="primary">Acceder</button>
       </mat-cell>
     </ng-container>
+
 
     <!-- CaseSpecific Column -->
     <ng-container matColumnDef="caseSpecific">
@@ -140,7 +141,20 @@
         mat-sort-header> Consultation </mat-header-cell>
       <mat-cell *matCellDef="let element">
         <button mat-button
-                (click)="suspectSpecific(url.SPRING_URL_GET_CASE, element.numeroDossier)"
+                (click)="getSpecific(url.SPRING_URL_GET_CASE, element.numeroDossier)"
+                color="primary">Acceder</button>
+      </mat-cell>
+    </ng-container>
+
+
+    <!-- UserSpecific Column -->
+    <ng-container matColumnDef="userSpecific">
+      <mat-header-cell 
+        *matHeaderCellDef
+        mat-sort-header> Consultation </mat-header-cell>
+      <mat-cell *matCellDef="let element">
+        <button mat-button
+                (click)="getSpecific(url.SPRING_URL_GET_USER, element.id)"
                 color="primary">Acceder</button>
       </mat-cell>
     </ng-container>
