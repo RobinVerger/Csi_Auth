@@ -35,6 +35,8 @@ import {MatExpansionModule} from '@angular/material/expansion';
 import {MatDividerModule} from '@angular/material/divider';
 import {MatCardModule} from '@angular/material/card';
 
+/* PopUps */
+import {MatSnackBarModule} from '@angular/material/snack-bar';
 
 @NgModule({
   imports: [
@@ -61,7 +63,8 @@ import {MatCardModule} from '@angular/material/card';
     MatListModule,
     MatExpansionModule,
     MatDividerModule,
-    MatCardModule
+    MatCardModule,
+    MatSnackBarModule
     
   ],
   exports: [
