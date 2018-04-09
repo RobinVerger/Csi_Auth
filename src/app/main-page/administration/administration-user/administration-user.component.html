@@ -84,11 +84,12 @@
             
             
             <mat-form-field>
-              <input matInput type="number" name="statutActivite" placeholder="Statut Activite" [(ngModel)]="formData.statutActivite">
+              <mat-select type="text" name="statutActivite" placeholder="Statut Activite" [(ngModel)]="formData.statutActivite">
+                <mat-option value="actif">Actif</mat-option>
+                <mat-option value="inactif">Inactif</mat-option>
+              </mat-select>
             </mat-form-field>
-            <br/>
             
-
           </div>
           
           
@@ -144,9 +145,5 @@
         <h1>{{upDateForm.valid | json}}</h1>
       </div> -->
          
-</mat-card>
-
-<mat-card>
-    <administration-link *ngIf="researchService.resultType=== 'suspect'"[typeSwitch]="url.SPRING_URL_POST_SUSPECT_LINK"></administration-link>
      <!-- <administration-link *ngIf="researchService.resultType=== 'user'"[typeSwitch]="url.SPRING_URL_POST_USER_LINK"></administration-link> -->
 </mat-card>

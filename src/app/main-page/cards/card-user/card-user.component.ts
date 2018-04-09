@@ -10,7 +10,7 @@ import { URL_LIST } from '../../../shared/data/URL-list';
 export class CardUserComponent implements OnInit {
 
   constructor(
-    private researchService : ResearchService,
+    protected researchService : ResearchService,
     @Inject('url') private url: URL_LIST) {}
     
   @Output() tabReq = new EventEmitter<number>();
@@ -20,6 +20,7 @@ export class CardUserComponent implements OnInit {
   }
 
   edit() {
+
     this.editCard.emit();
     this.tabReq.emit(2); //switch the tab to Administration
   }

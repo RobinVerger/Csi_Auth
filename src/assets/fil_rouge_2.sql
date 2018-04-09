@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Apr 05, 2018 at 02:40 PM
+-- Generation Time: Apr 09, 2018 at 01:28 PM
 -- Server version: 5.7.19
 -- PHP Version: 5.6.31
 
@@ -71,7 +71,7 @@ CREATE TABLE IF NOT EXISTS `humain` (
   `grade` varchar(45) DEFAULT NULL,
   `competences` varchar(45) DEFAULT NULL,
   `date_prise_service` date DEFAULT NULL,
-  `actif` tinyint(4) DEFAULT NULL,
+  `actif` varchar(24) DEFAULT NULL,
   `telephone` varchar(45) DEFAULT NULL,
   `taille` float DEFAULT NULL,
   `poids` int(11) DEFAULT NULL,
@@ -82,7 +82,7 @@ CREATE TABLE IF NOT EXISTS `humain` (
   `type_condamnation` varchar(45) DEFAULT NULL,
   `nationalite` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`id_humain`)
-) ENGINE=InnoDB AUTO_INCREMENT=71 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=73 DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `humain`
@@ -156,9 +156,11 @@ INSERT INTO `humain` (`id_humain`, `nom`, `prenom`, `date_naissance`, `genre`, `
 (65, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
 (66, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
 (67, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-(68, 'Specific', 'User', '1988-02-06', 'F', NULL, NULL, NULL, 'Policier', 'Ultra good', '1988-09-26', 1, '1456412184', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(68, 'Specific', 'User', '1988-02-06', 'F', NULL, NULL, NULL, 'Policier', 'Ultra good', '1988-09-26', 'actif', '1456412184', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
 (69, 'dqsdsqdqsd', 'Johny', '1988-05-26', 'M', NULL, NULL, NULL, 'Policier', 'dshquikujndsq', NULL, NULL, '456916', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-(70, 'dasdas', 'dasdasdasd', NULL, 'M', NULL, NULL, NULL, 'Flick', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+(70, 'dasdas', 'dasdasdasd', NULL, 'M', NULL, NULL, NULL, 'Flick', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(71, 'Mister', 'Bean', '1999-09-22', 'M', NULL, NULL, NULL, 'Policier', 'Comique', '2000-05-05', 'actif', '1555456142', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(72, 'Clark', 'Kent', '1555-07-08', 'M', NULL, NULL, NULL, 'Policier', 'Hero', '0512-06-02', 'inactif', '545641256', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
