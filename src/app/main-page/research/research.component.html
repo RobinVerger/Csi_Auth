@@ -17,6 +17,7 @@
     <card-case 
       *ngIf="researchService.resultType==='case'"
       (editCard)="admin.case.initForm()"
+      (delete)="researchComp.reset()"
       (tabReq)="researchService.currentIndex=$event"></card-case>
     <card-user 
       *ngIf="researchService.resultType==='user'"
@@ -26,7 +27,10 @@
   
   <!-- Tab admin -->
   <mat-tab label="Administration">
-      <administration></administration>
+      <administration
+        (tabReq)="researchService.currentIndex=$event"
+        (created)="researchComp.reset()"
+      ></administration>
       <!-- <app-test-component></app-test-component> -->
   </mat-tab>
 </mat-tab-group>

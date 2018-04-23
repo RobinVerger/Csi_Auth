@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, Inject } from '@angular/core';
+import { Component, OnInit, ViewChild, Inject, Output, EventEmitter } from '@angular/core';
 import { ResearchService } from '../../services/research.service';
 import { URL_LIST } from '../../../shared/data/URL-list';
 import {MatSnackBar} from '@angular/material';
@@ -6,6 +6,7 @@ import { HttpEvent, HttpErrorResponse } from '@angular/common/http';
 
 
 import { Observable } from 'rxjs/Observable';
+
 @Component({
   selector: 'administration-case',
   templateUrl: './administration-case.component.html',
@@ -20,6 +21,8 @@ export class AdministrationCaseComponent implements OnInit {
     public snackBar: MatSnackBar
   ) {}
 
+  @Output() created = new EventEmitter();
+
   @ViewChild('upDateForm') public formData;
   
   ngOnInit() {
@@ -29,7 +32,10 @@ export class AdministrationCaseComponent implements OnInit {
     this.formData = this.researchService.result$[0];
   }
   onSubmit(formData) {
-    this.researchService.createEntry(this.url.SPRING_URL_POST_CASE, formData).subscribe(res => this.snackBar.open('Affaire crée', 'OK'));
+    this.researchService.createEntry(this.url.SPRING_URL_POST_CASE, formData).subscribe(res => { 
+      this.created.emit();
+      this.snackBar.open('Affaire crée', 'OK')
+    });
   }
   update() {
     this.researchService.updateEntry(this.url.SPRING_URL_PUT_CASE, this.formData, this.researchService.result$[0]['id']).do((ev: HttpEvent<any>) => { 

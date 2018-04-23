@@ -19,6 +19,7 @@ export class CardCaseComponent implements OnInit {
 
   @Output() tabReq = new EventEmitter<number>();
   @Output() editCard = new EventEmitter();
+  @Output() delete = new EventEmitter();
 
   ngOnInit() {
   }
@@ -27,6 +28,8 @@ export class CardCaseComponent implements OnInit {
     this.researchService.deleteEntry(this.url.SPRING_URL_DELETE_CASE, this.researchService.result$[0]['numeroDossier']).subscribe(res =>{
       console.log(res);
       console.log('Case archived');
+      this.tabReq.emit(0); //switch the tab to research
+      this.delete.emit(); //delete data
       })
   }
   

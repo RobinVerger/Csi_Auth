@@ -19,6 +19,7 @@ import 'rxjs/add/operator/map';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
+import { MatSnackBar } from '@angular/material';
 
 
 @Component({
@@ -26,7 +27,7 @@ import { MatSort } from '@angular/material/sort';
   templateUrl: './research-content.component.html',
   styleUrls: ['./research-content.component.scss']
 })
-export class ResearchContentComponent implements OnInit {
+export class ResearchContentComponent  {
 
    dataSource : MatTableDataSource<any>;
    //typeOfRequest: string = '';
@@ -40,13 +41,16 @@ export class ResearchContentComponent implements OnInit {
 
   constructor(
       private researchService: ResearchService,
-      @Inject('url') public url: URL_LIST
+      @Inject('url') public url: URL_LIST,
+      public snackBar: MatSnackBar
     ) {}
-
-  ngOnInit() {}
  
-
-  /* Http Calls */
+    reset() {
+      this.researchService.result$ = [];
+      this.researchService.detailTabIsDisabled = true;
+      this.researched = false;
+      this.snackBar.open('Supprimé', 'OK');
+    }
 
   /* Generic list getter */
   getList(path: string) {

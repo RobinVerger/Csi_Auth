@@ -15,9 +15,18 @@ export class CardUserComponent implements OnInit {
     
   @Output() tabReq = new EventEmitter<number>();
   @Output() editCard = new EventEmitter();
+  @Output() delete = new EventEmitter();
   
   ngOnInit() {
   }
+
+  // archiver() {
+  //   this.researchService.deleteEntry(this.url.SPRING_URL_DELETE_, this.researchService.result$[0]['numeroDossier']).subscribe(res =>{
+  //     console.log(res);
+  //     console.log('user archived');
+  //     })
+  // }
+
 
   edit() {
 

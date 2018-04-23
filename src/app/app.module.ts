@@ -3,7 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 
 /* Utilities */
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
-import { FlexLayoutModule } from '@angular/flex-layout';
+//import { FlexLayoutModule } from '@angular/flex-layout';
 
 /* Material */
 import { MaterialImportsModule } from "./material-imports.module";
@@ -29,6 +29,7 @@ import { URL_LIST } from './shared/data/URL-list'; // all url used
 
 /* Test Purpose */
 import { TestBarModule } from './test-bar/test-bar.module';
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 
 @NgModule({

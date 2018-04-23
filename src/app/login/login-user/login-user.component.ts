@@ -15,6 +15,9 @@ import { ApiService } from '../../services/api.service';
 })
 export class LoginUserComponent implements OnInit {
 
+   /* JWT fake token */
+   authToken = {token : 'random token'};
+   
   constructor(
       private router: Router, 
       private auth: AuthService, 
@@ -28,10 +31,15 @@ export class LoginUserComponent implements OnInit {
   onSubmit(payload) {
 
    // console.log(JSON.stringify(payload));
-    this.api.post('http://localhost:4242/api/auth', payload)
-     .subscribe(resp => {
-       this.auth.setToken(resp);
-        this.router.navigate(['main'], { replaceUrl : true });
-      });
+    // this.api.post('http://localhost:4242/api/auth', payload)
+    //  .subscribe(resp => {
+    //    this.auth.setToken(resp);
+    //     this.router.navigate(['main'], { replaceUrl : true });
+    //   });
+
+    
+    localStorage.setItem(this.auth.storageKey, this.authToken.token);
+    this.router.navigate(['main'], { replaceUrl : true });
+     
   }
 }

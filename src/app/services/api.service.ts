@@ -9,12 +9,16 @@ import 'rxjs/add/operator/map';
 import 'rxjs/add/observable/throw';
 import 'rxjs/add/operator/do';
 import { ISuspect } from '../shared/models/iSuspect';
+import { MatSnackBar } from '@angular/material';
 
 
 @Injectable()
 export class ApiService {
 
-  constructor(private http: HttpClient, private auth: AuthService) { }
+  constructor(
+    private http: HttpClient, private auth: AuthService,
+    public snackBar: MatSnackBar
+  ) { }
 
   get(url: string) {
     
@@ -43,7 +47,24 @@ export class ApiService {
       statusCode: res.status,
       error: res.message
     };
+    switch (error.statusCode){
+      case 0:
+        this.snackBar.open('Erreur: Pas de connexion', 'OK')
+         break;
+      case 400: 
+        this.snackBar.open('Erreur: Mauvaise requete', 'OK')
+        break;
+      case 401: 
+        this.snackBar.open('Erreur: Vous n\'etes pas autorisé', 'OK')
+        break;
+      case 403:
+        this.snackBar.open('Erreur: Erreur interne', 'OK')
+        break;
+      case 404: 
+        this.snackBar.open('Erreur: Page non trouvée', 'OK')
+        break;
 
+    }
     console.log(error);
     return Observable.throw(error);
   }

@@ -1,7 +1,9 @@
 import {
   Component,
   OnInit,
-  ViewChild
+  ViewChild,
+  Output,
+  EventEmitter
 } from '@angular/core';
 import {
   NgForm
@@ -16,7 +18,7 @@ import { AdministrationCaseComponent } from './administration-case/administratio
   templateUrl: './administration.component.html',
   styleUrls: ['./administration.component.scss']
 })
-export class AdministrationComponent implements OnInit {
+export class AdministrationComponent {
 
   constructor(
     private researchService: ResearchService
@@ -27,7 +29,13 @@ export class AdministrationComponent implements OnInit {
   @ViewChild(AdministrationCaseComponent) public case: AdministrationCaseComponent;
   @ViewChild(AdministrationUserComponent) public user: AdministrationUserComponent;
   
-  ngOnInit() {
-    }
+  
+  @Output() created = new EventEmitter();
+  @Output() tabReq = new EventEmitter<number>();
+
+  createdEvent() {
+    this.tabReq.emit(0) //switch the tab to Research
+    this.created.emit();
+  }
 
 }

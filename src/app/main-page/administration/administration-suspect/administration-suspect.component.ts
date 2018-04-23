@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, Inject } from '@angular/core';
+import { Component, OnInit, ViewChild, Inject, EventEmitter, Output } from '@angular/core';
 import { ResearchService } from '../../services/research.service';
 import { URL_LIST } from '../../../shared/data/URL-list';
 import {MatSnackBar} from '@angular/material';
@@ -11,7 +11,7 @@ import { Observable } from 'rxjs/Observable';
   templateUrl: './administration-suspect.component.html',
   styleUrls: ['./administration-suspect.component.scss']
 })
-export class AdministrationSuspectComponent implements OnInit {
+export class AdministrationSuspectComponent {
 
   constructor(
     private researchService: ResearchService,
@@ -20,11 +20,7 @@ export class AdministrationSuspectComponent implements OnInit {
   ) {}
 
   @ViewChild('upDateForm') public formData;
-
-  
-  ngOnInit() {
-    
-  }
+  @Output() created = new EventEmitter();
   
   
   initForm() {

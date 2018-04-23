@@ -2,6 +2,7 @@
 
 <administration-suspect  *ngIf="researchService.resultType === 'suspect'"></administration-suspect>
 
-<administration-case  *ngIf="researchService.resultType === 'case'"></administration-case>
+<administration-case
+  (created)="createdEvent()"  *ngIf="researchService.resultType === 'case'"></administration-case>
 
-<administration-user  *ngIf="researchService.resultType === 'user'"></administration-user>
+<administration-user (created)="createdEvent()" *ngIf="researchService.resultType === 'user'"></administration-user>

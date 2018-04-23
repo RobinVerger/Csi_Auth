@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, Inject } from '@angular/core';
+import { Component, OnInit, ViewChild, Inject, Output, EventEmitter } from '@angular/core';
 import { ResearchService } from '../../services/research.service';
 import { URL_LIST } from '../../../shared/data/URL-list';
 import { HttpResponse, HttpEvent, HttpErrorResponse } from "@angular/common/http";
@@ -19,7 +19,7 @@ import 'rxjs/add/observable/throw';
 
 
 
-export class AdministrationUserComponent implements OnInit {
+export class AdministrationUserComponent {
 
   constructor(
     private researchService: ResearchService,
@@ -29,19 +29,22 @@ export class AdministrationUserComponent implements OnInit {
 
   @ViewChild('upDateForm') public formData;
 
+  @Output() created = new EventEmitter();
+
   
-  ngOnInit() {
-    
-  }
-  
+
   
   initForm() {
     this.formData = this.researchService.result$[0];
   }
+  
   onSubmit(formData) {
-    this.researchService.createEntry(this.url.SPRING_URL_POST_USER, formData).subscribe(res => this.snackBar.open('Agent crée', 'OK'));
-    
+    this.researchService.createEntry(this.url.SPRING_URL_POST_USER, formData).subscribe(res => { 
+      this.created.emit();
+      this.snackBar.open('Agent crée', 'OK')
+    })   
   }
+
   update() {
     this.researchService.updateEntry(this.url.SPRING_URL_PUT_USER, this.formData, this.researchService.result$[0]['id']).do((ev: HttpEvent<any>) => { 
       if(ev) {
