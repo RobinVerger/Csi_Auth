@@ -39,11 +39,11 @@ class="card-menu-button"
           
           <label>Date de Création</label>
           <mat-form-field>
-            <input matInput type="date" name="dateCreation" [(ngModel)]="formData.dateCreation">
+            <input matInput type="date" name="dateCreation" [(ngModel)]="formData.dateCreation" required>
           </mat-form-field>
           
           <mat-form-field>
-            <input matInput type="text" name="localisation" placeholder="Localisation" [(ngModel)]="formData.localisation">
+            <input matInput type="text" name="localisation" placeholder="Localisation" [(ngModel)]="formData.localisation" required>
           </mat-form-field>
           </div>
 

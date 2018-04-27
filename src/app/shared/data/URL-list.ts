@@ -16,7 +16,7 @@ export class URL_LIST {
       SPRING_URL_GET_SUSPECT = "http://localhost:8080/csi/suspect"; 
       SPRING_URL_POST_SUSPECT = "http://localhost:8080/csi/suspect"; 
       SPRING_URL_PUT_SUSPECT = "http://localhost:8080/csi/suspect"; 
-      // SPRING_URL_DELETE_SUSPECT = "http://localhost:8080/csi/suspect"; 
+      SPRING_URL_DELETE_SUSPECT = "http://localhost:8080/csi/archiverSuspect"; 
       
       /* LINK */
       SPRING_URL_POST_SUSPECT_LINK = "http://localhost:8080/csi/suspect/link"; 
@@ -27,14 +27,14 @@ export class URL_LIST {
       SPRING_URL_GET_CASE = "http://localhost:8080/csi/enquete"; 
       SPRING_URL_POST_CASE = "http://localhost:8080/csi/enquete"; 
       SPRING_URL_PUT_CASE = "http://localhost:8080/csi/enquete"; 
-      SPRING_URL_DELETE_CASE = "http://localhost:8080/csi/supprimer"; 
+      SPRING_URL_DELETE_CASE = "http://localhost:8080/csi/archiverEnquete"; 
       
       /* USERS */
       SPRING_URL_GET_USERS = "http://localhost:8080/csi/agents"; 
       SPRING_URL_GET_USER = "http://localhost:8080/csi/agent"; 
       SPRING_URL_POST_USER = "http://localhost:8080/csi/agent"; 
       SPRING_URL_PUT_USER = "http://localhost:8080/csi/agent"; 
-      // SPRING_URL_DELETE_USER = "http://localhost:8080/csi/agent"; 
+      SPRING_URL_DELETE_USER = "http://localhost:8080/csi/archiverAgent"; 
       
   /* AUTHENTIFICATION SERVER */
   AUTH_URL = "http://localhost:4242"; //Base Url

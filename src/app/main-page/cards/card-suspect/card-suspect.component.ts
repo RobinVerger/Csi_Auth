@@ -25,9 +25,7 @@ export class CardSuspectComponent implements OnInit {
   }
 
    archiver() {
-     this.researchService.deleteEntry(this.url.SPRING_URL_DELETE_CASE, this.researchService.result$[0]['numeroDossier']).subscribe(res =>{
-      console.log(res);
-      console.log('Case archived');
+     this.researchService.deleteEntry(this.url.SPRING_URL_DELETE_SUSPECT, this.researchService.result$[0]['id']).subscribe(res =>{
       this.tabReq.emit(0); //switch the tab to research
       this.delete.emit(); //delete data
       })

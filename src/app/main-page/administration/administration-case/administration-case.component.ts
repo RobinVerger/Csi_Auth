@@ -38,7 +38,7 @@ export class AdministrationCaseComponent implements OnInit {
     });
   }
   update() {
-    this.researchService.updateEntry(this.url.SPRING_URL_PUT_CASE, this.formData, this.researchService.result$[0]['id']).do((ev: HttpEvent<any>) => { 
+    this.researchService.updateEntry(this.url.SPRING_URL_PUT_CASE, this.formData, this.researchService.result$[0]['numeroDossier']).do((ev: HttpEvent<any>) => { 
       if(ev) {
           this.snackBar.open('Affaire modifie', 'OK');  
       }

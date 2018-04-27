@@ -18,9 +18,5 @@ export class ResearchComponent implements OnInit {
   @ViewChild(AdministrationComponent) public admin: AdministrationComponent;
   @ViewChild(ResearchContentComponent) public researchComp : ResearchContentComponent;
 
-  ngOnInit() {
-  }
-
- 
-
+  ngOnInit() {}
 }

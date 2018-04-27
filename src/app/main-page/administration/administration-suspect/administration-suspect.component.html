@@ -53,7 +53,8 @@ class="card-menu-button"
             
             <mat-radio-group name="genre"
                              #gender="ngModel" 
-                             [(ngModel)]="formData.genre">
+                             [(ngModel)]="formData.genre"
+                             required>
               <label>Genre: </label>
               <div class="radio-buttons">
                 <mat-radio-button value="M">Homme</mat-radio-button>
@@ -66,7 +67,7 @@ class="card-menu-button"
       
             <mat-form-field>
               <label>Date de Naissance</label>
-              <input matInput type="date" name="dateNaissance" [(ngModel)]="formData.dateNaissance">
+              <input matInput type="date" name="dateNaissance" [(ngModel)]="formData.dateNaissance" required>
             </mat-form-field>
             <br/>
       
@@ -92,7 +93,8 @@ class="card-menu-button"
           <div class="rightPart">
 
             <mat-form-field>
-              <textarea matInput type="text" name="adresseConnues" placeholder="Adresse" [(ngModel)]="formData.adresseConnues"></textarea>
+              <textarea matInput type="text" name="adresseConnues" placeholder="Adresse" [(ngModel)]="formData.adresseConnues"
+              required></textarea>
             </mat-form-field>
             <br/>
   

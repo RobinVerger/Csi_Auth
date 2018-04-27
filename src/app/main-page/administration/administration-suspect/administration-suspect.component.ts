@@ -27,11 +27,10 @@ export class AdministrationSuspectComponent {
     this.formData = this.researchService.result$[0];
   }
   onSubmit(formData) {
-    this.researchService.createEntry(this.url.SPRING_URL_POST_SUSPECT, formData).subscribe(res => this.snackBar.open('Suspect crée', 'OK'));
+    this.researchService.createEntry(this.url.SPRING_URL_POST_SUSPECT, formData).subscribe(res => this.snackBar.open('Hunain crée, veuillez assigner à une affaire.', 'OK'));
     
   }
   update() {
-    console.log('button mis a jour');
     this.researchService.updateEntry(this.url.SPRING_URL_PUT_SUSPECT, this.formData, this.researchService.result$[0]['id']).do((ev: HttpEvent<any>) => { 
       if(ev) {
           this.snackBar.open('Suspect modifie', 'OK');  

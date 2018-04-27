@@ -20,12 +20,12 @@ export class CardUserComponent implements OnInit {
   ngOnInit() {
   }
 
-  // archiver() {
-  //   this.researchService.deleteEntry(this.url.SPRING_URL_DELETE_, this.researchService.result$[0]['numeroDossier']).subscribe(res =>{
-  //     console.log(res);
-  //     console.log('user archived');
-  //     })
-  // }
+  archiver() {
+    this.researchService.deleteEntry(this.url.SPRING_URL_DELETE_USER, this.researchService.result$[0]['id']).subscribe(res =>{
+      this.tabReq.emit(0); //switch the tab to research
+      this.delete.emit(); //delete data
+      })
+  }
 
 
   edit() {

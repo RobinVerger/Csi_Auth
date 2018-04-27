@@ -63,6 +63,9 @@ export class ApiService {
       case 404: 
         this.snackBar.open('Erreur: Page non trouvée', 'OK')
         break;
+      case 500: 
+        this.snackBar.open('Erreur: Existe déja', 'OK')
+        break;
 
     }
     console.log(error);

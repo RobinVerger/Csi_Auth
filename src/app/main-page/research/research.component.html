@@ -13,6 +13,7 @@
     <card-suspect 
       *ngIf="researchService.resultType==='suspect'"
       (editCard)="admin.suspect.initForm()"
+      (delete)="researchComp.reset()"
       (tabReq)="researchService.currentIndex=$event"></card-suspect>
     <card-case 
       *ngIf="researchService.resultType==='case'"
@@ -22,6 +23,7 @@
     <card-user 
       *ngIf="researchService.resultType==='user'"
       (editCard)="admin.user.initForm()"
+      (delete)="researchComp.reset()"
       (tabReq)="researchService.currentIndex=$event"></card-user>
   </mat-tab>
   
