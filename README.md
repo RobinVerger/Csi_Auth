@@ -22,3 +22,8 @@ Dans votre fenetre de commande, naviguez jusqu'au dossier csiFront. Depuis ce do
 2. `ng build` pour construire le projet, le projet sera stocke dans le dossier 'dist/'
 3. `ng test` pour lancer les test unitaires. Veuillez noter que seul le fichier a un test redigé 'ApiService.service.ts', tous les autres fichiers seront evalue comme etant faux. 
 
+________________________________________________________________________________________________________________________
+@Author jean-philippe
+
+- this repository contains the front-end part of the project, as said in the https://github.com/jipaow/CSI-Back detail cards, create and update forms are based on https://github.com/jipaow/suspectFront first draft but mainly optimized and refactored by Kayetan.
+- for more details about project conception please refer to https://github.com/jipaow/CSI-Back read me (in french language).
